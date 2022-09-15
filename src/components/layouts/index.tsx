@@ -44,13 +44,25 @@ const MainLayout = () => {
           </div>
           <Menu style={{backgroundColor:"black", color:"white", border:"none"}} mode="inline" >
             {/* sau dung nav link de css chu */}
-          <Menu.Item>Home</Menu.Item> 
-          <Menu.Item>Search</Menu.Item>
-          <Menu.Item>Browse</Menu.Item>
-          <Menu.Item>My Playlists</Menu.Item>
-          <Menu.Item> My Albums</Menu.Item>
-          <div className='text-white mt-[30px] mb-[16px] pl-[24px] font-bold text-transform:uppercase text-[0.75rem]'>PLAYLISTS</div>
-          <Menu.Item>Liked songs</Menu.Item>
+          <Menu.Item><span>Home</span></Menu.Item> 
+          <Menu.Item><span>Search</span></Menu.Item>
+          <Menu.Item><span>Browse</span></Menu.Item>
+          <Menu.Item><span>My Playlists</span></Menu.Item>
+          <Menu.Item><span> My Albums</span></Menu.Item>
+          {/* <div className='text-white mt-[30px] mb-[16px] pl-[24px] font-bold text-transform:uppercase text-[0.75rem]'>PLAYLISTS</div>
+          <Menu.Item>Liked songs</Menu.Item> */}
+          <div className='flex flex-col pt-[1.5rem] '>
+            <h1 className='px-6 pb-[0.25rem] text-xs font-bold text-white uppercase text-opacity-60'> Playlists</h1>
+            <ul className='h-[40px]'>
+              <li className='px-2'>
+                <Menu.Item
+                style={{height:"40px", backgroundColor:"black"}}
+                ><a className='flex items-center px-4 rounded-[4px] bg-[black] w-full'>Liked songs</a></Menu.Item>
+              </li>
+            </ul>
+            <div className='mx-6 separator'></div>
+            <ul className="playlists ng-star-inserted"></ul>
+          </div>
           </Menu>
         </div>
       </Sider>
