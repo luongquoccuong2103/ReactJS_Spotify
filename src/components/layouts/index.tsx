@@ -2,7 +2,9 @@ import { Menu } from "antd";
 import Layout, { Content, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
 import "antd/dist/antd.css";
-import "./index.css"
+import "./index.css";
+import BodyBrowse from "./Pages/Browse";
+import TopList from "./Pages/Browse/TopLists";
 
 function getItem(label: string, key: any) {
   return {
@@ -19,19 +21,17 @@ const MainLayout = () => {
     getItem("My Playlists", "4"),
     getItem("My Albums", "5"),
   ];
-  const playlist = [
-    getItem("Liked songs","6")
-  ]
+  const playlist = [getItem("Liked songs", "6")];
 
   return (
     <Layout>
       <Sider
-      width={232}
-      style={{ 
-        backgroundColor:"black"
-      }}
+        width={232}
+        style={{
+          backgroundColor: "black",
+        }}
       >
-        <div className='h-[100vh]'>
+        <div className="h-[100vh]">
           <div id="logo" className="px-[24px] mb-[16px] mt-[24px]">
             <span>
               <svg viewBox="0 0 1134 340" className="h-10 ng-star-inserted">
@@ -42,21 +42,66 @@ const MainLayout = () => {
               </svg>
             </span>
           </div>
-          <Menu style={{backgroundColor:"black", color:"white", border:"none"}} mode="inline" >
+          <Menu
+            style={{ backgroundColor: "black", color: "white", border: "none" }}
+            mode="inline"
+          >
             {/* sau dung nav link de css chu */}
-          <Menu.Item>Home</Menu.Item> 
-          <Menu.Item>Search</Menu.Item>
-          <Menu.Item>Browse</Menu.Item>
-          <Menu.Item>My Playlists</Menu.Item>
-          <Menu.Item> My Albums</Menu.Item>
-          <div className='text-white mt-[30px] mb-[16px] pl-[24px] font-bold text-transform:uppercase text-[0.75rem]'>PLAYLISTS</div>
-          <Menu.Item>Liked songs</Menu.Item>
+            <Menu.Item>
+              <span>Home</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span>Search</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span>Browse</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span>My Playlists</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span> My Albums</span>
+            </Menu.Item>
+            {/* <div className='text-white mt-[30px] mb-[16px] pl-[24px] font-bold text-transform:uppercase text-[0.75rem]'>PLAYLISTS</div>
+          <Menu.Item>Liked songs</Menu.Item> */}
+            <div className="flex flex-col pt-[1.5rem] ">
+              <h1 className="px-6 pb-[0.25rem] text-xs font-bold text-white uppercase text-opacity-60">
+                {" "}
+                Playlists
+              </h1>
+              <ul className="h-[40px]">
+                <li className="px-2">
+                  <Menu.Item
+                    style={{ height: "40px", backgroundColor: "black" }}
+                  >
+                    <a
+                      className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
+                      href="#"
+                    >
+                      Liked songs
+                    </a>
+                  </Menu.Item>
+                </li>
+              </ul>
+              <div className="mx-6 separator"></div>
+              <ul className="playlists ng-star-inserted"></ul>
+            </div>
           </Menu>
         </div>
       </Sider>
-      <Layout>
+      <Layout
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,.8),#121212)`,
+        backgroundColor:"gray"
+      }}
+      >
         <Header></Header>
-        <Content></Content>
+        <Content
+        
+        >
+          {/* <BodyBrowse /> */}
+          <TopList/>
+        </Content>
       </Layout>
     </Layout>
   );

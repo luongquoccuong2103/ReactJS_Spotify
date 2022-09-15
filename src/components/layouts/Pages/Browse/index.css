@@ -1,0 +1,44 @@
+.main-view {
+    scroll-behavior: smooth;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.common-grid {
+    grid-gap: 24px;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    display: grid;
+}
+
+.image {
+    /* background-image: url(https://t.scdn.co/media/derived/toplists_11160599e6a04ac5d6f2757f5511778f_0_0_275_275.jpg); */
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    background-color: #333;
+    background-position: 50%;
+    background-size: cover;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+}
+
+.category-name {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    --tw-text-opacity: 1;
+    color: rgba(255,255,255,var(--tw-text-opacity));
+}
+
+.ellipsis-one-line, .text-description {
+    
+    -webkit-box-orient: vertical;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
