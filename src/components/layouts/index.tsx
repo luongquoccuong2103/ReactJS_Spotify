@@ -3,6 +3,9 @@ import Layout, { Content, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
 import "antd/dist/antd.css";
 import "./index.css";
+import BodyBrowse from "./Pages/Browse";
+import TopList from "./Pages/Browse/TopLists";
+
 function getItem(label: string, key: any) {
   return {
     key,
@@ -75,174 +78,61 @@ const MainLayout = () => {
             mode="inline"
           >
             {/* sau dung nav link de css chu */}
-            <Menu.Item>Home</Menu.Item>
-            <Menu.Item>Search</Menu.Item>
-            <Menu.Item>Browse</Menu.Item>
-            <Menu.Item>My Playlists</Menu.Item>
-            <Menu.Item> My Albums</Menu.Item>
-            <div className="text-white mt-[30px] mb-[16px] pl-[24px] font-bold text-transform:uppercase text-[0.75rem]">
-              PLAYLISTS
+            <Menu.Item>
+              <span>Home</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span>Search</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span>Browse</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span>My Playlists</span>
+            </Menu.Item>
+            <Menu.Item>
+              <span> My Albums</span>
+            </Menu.Item>
+            {/* <div className='text-white mt-[30px] mb-[16px] pl-[24px] font-bold text-transform:uppercase text-[0.75rem]'>PLAYLISTS</div>
+          <Menu.Item>Liked songs</Menu.Item> */}
+            <div className="flex flex-col pt-[1.5rem] ">
+              <h1 className="px-6 pb-[0.25rem] text-xs font-bold text-white uppercase text-opacity-60">
+                {" "}
+                Playlists
+              </h1>
+              <ul className="h-[40px]">
+                <li className="px-2">
+                  <Menu.Item
+                    style={{ height: "40px", backgroundColor: "black" }}
+                  >
+                    <a
+                      className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
+                      href="#"
+                    >
+                      Liked songs
+                    </a>
+                  </Menu.Item>
+                </li>
+              </ul>
+              <div className="mx-6 separator"></div>
+              <ul className="playlists ng-star-inserted"></ul>
             </div>
-            <Menu.Item>Liked songs</Menu.Item>
           </Menu>
         </div>
       </Sider>
-      <Layout style={{ backgroundColor: "#2e2e2e" }}>
-        <Header
-          style={{
-            backgroundColor: "#2e2e2e",
-            display: "flex",
-            height: "60",
-          }}
+      <Layout
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,.8),#121212)`,
+        backgroundColor:"gray"
+      }}
+      >
+        <Header></Header>
+        <Content
+        
         >
-          <div className="flex">
-            <button
-              _ngcontent-bxa-c70=""
-              title="Go back"
-              className="mr-4 arrow-button"
-            >
-              <svg
-                _ngcontent-bxa-c70=""
-                role="img"
-                focusable="false"
-                height="24"
-                width="24"
-                viewBox="0 0 24 24"
-              >
-                <polyline
-                  _ngcontent-bxa-c70=""
-                  points="16 4 7 12 16 20"
-                  fill="none"
-                  stroke="currentColor"
-                ></polyline>
-              </svg>
-            </button>
-            <button
-              _ngcontent-bxa-c70=""
-              title="Go forward"
-              className="arrow-button"
-            >
-              <svg
-                _ngcontent-bxa-c70=""
-                role="img"
-                focusable="false"
-                height="24"
-                width="24"
-                viewBox="0 0 24 24"
-              >
-                <polyline
-                  _ngcontent-bxa-c70=""
-                  points="8 4 17 12 8 20"
-                  fill="none"
-                  stroke="currentColor"
-                ></polyline>
-              </svg>
-            </button>
-          </div>
-          <div className="user-social">
-            <Button type="primary" className="ant-btn.btn-with-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="bi bi-cup-straw"
-                viewBox="0 0 16 16"
-                height="100%"
-                width="100%"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path d="M13.902.334a.5.5 0 01-.28.65l-2.254.902-.4 1.927c.376.095.715.215.972.367.228.135.56.396.56.82 0 .046-.004.09-.011.132l-.962 9.068a1.28 1.28 0 01-.524.93c-.488.34-1.494.87-3.01.87-1.516 0-2.522-.53-3.01-.87a1.28 1.28 0 01-.524-.93L3.51 5.132A.78.78 0 013.5 5c0-.424.332-.685.56-.82.262-.154.607-.276.99-.372C5.824 3.614 6.867 3.5 8 3.5c.712 0 1.389.045 1.985.127l.464-2.215a.5.5 0 01.303-.356l2.5-1a.5.5 0 01.65.278zM9.768 4.607A13.991 13.991 0 008 4.5c-1.076 0-2.033.11-2.707.278A3.284 3.284 0 004.645 5c.146.073.362.15.648.222C5.967 5.39 6.924 5.5 8 5.5c.571 0 1.109-.03 1.588-.085l.18-.808zm.292 1.756C9.445 6.45 8.742 6.5 8 6.5c-1.133 0-2.176-.114-2.95-.308a5.514 5.514 0 01-.435-.127l.838 8.03c.013.121.06.186.102.215.357.249 1.168.69 2.438.69 1.27 0 2.081-.441 2.438-.69.042-.029.09-.094.102-.215l.852-8.03a5.517 5.517 0 01-.435.127 8.88 8.88 0 01-.89.17zM4.467 4.884s.003.002.005.006l-.005-.006zm7.066 0l-.005.006c.002-.004.005-.006.005-.006zM11.354 5a3.174 3.174 0 00-.604-.21l-.099.445.055-.013c.286-.072.502-.149.648-.222z"></path>
-              </svg>
-              <span className="ng-star-inserted">Support</span>
-            </Button>
-            <Button type="primary" className="ant-btn.btn-with-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="bi bi-emoji-heart-eyes"
-                viewBox="0 0 16 16"
-                height="100%"
-                width="100%"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path d="M8 15A7 7 0 118 1a7 7 0 010 14zm0 1A8 8 0 108 0a8 8 0 000 16z"></path>
-                <path d="M11.315 10.014a.5.5 0 01.548.736A4.498 4.498 0 017.965 13a4.498 4.498 0 01-3.898-2.25.5.5 0 01.548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242.63 0 1.46-.118 2.152-.242a26.58 26.58 0 001.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434zm6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434z"></path>
-              </svg>
-              <span className="ng-star-inserted">Jira Clone</span>
-            </Button>
-
-            <Button type="primary" className="ant-btn.btn-with-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="bi bi-cup-straw"
-                viewBox="0 0 16 16"
-                height="100%"
-                width="100%"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0016 3.542a6.658 6.658 0 01-1.889.518 3.301 3.301 0 001.447-1.817 6.533 6.533 0 01-2.087.793A3.286 3.286 0 007.875 6.03a9.325 9.325 0 01-6.767-3.429 3.289 3.289 0 001.018 4.382A3.323 3.323 0 01.64 6.575v.045a3.288 3.288 0 002.632 3.218 3.203 3.203 0 01-.865.115 3.23 3.23 0 01-.614-.057 3.283 3.283 0 003.067 2.277A6.588 6.588 0 01.78 13.58a6.32 6.32 0 01-.78-.045A9.344 9.344 0 005.026 15z"></path>
-              </svg>
-              <span className="ng-star-inserted">Tweet</span>
-            </Button>
-            <Button type="primary" className="ant-btn.btn-with-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="bi bi-cup-straw"
-                viewBox="0 0 16 16"
-                height="100%"
-                width="100%"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-              <span className="pl-2"> Source Code</span>
-            </Button>
-          </div>
-
-          <div className="user-info">
-            <Button className="user-upgrade" shape="round">
-              Upgrade
-            </Button>
-            <div
-              _ngcontent-dyf-c69=""
-              nz-dropdown=""
-              className="user-dropdown ant-dropdown-trigger"
-            >
-              <figure _ngcontent-dyf-c69="" className="w-7 h-7" title="Cường">
-                <img
-                  _ngcontent-dyf-c69=""
-                  alt="User Profile"
-                  className="rounded-img"
-                  src="https://avatars.githubusercontent.com/u/66833983?s=200&amp;v=4"
-                />
-              </figure>
-              <span
-                _ngcontent-dyf-c69=""
-                className="w-16 ml-2 text-xs text-white truncate"
-              >
-                Cường
-              </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="bi bi-caret-down-fill"
-                viewBox="0 0 16 16"
-                height="100%"
-                width="100%"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 01.753 1.659l-4.796 5.48a1 1 0 01-1.506 0z"></path>
-              </svg>
-            </div>
-          </div>
-        </Header>
-        <Content></Content>
+          <BodyBrowse />
+          <TopList/>
+        </Content>
       </Layout>
     </Layout>
   );
