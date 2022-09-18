@@ -1,0 +1,6 @@
+.footer {
+    grid-area: now-playing-bar;
+    background-color: #181818;
+    width: 100%;
+    z-index: 4;
+}

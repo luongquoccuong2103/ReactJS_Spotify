@@ -1,10 +1,10 @@
 .ant-menu-item .ant-menu-item-only-child {
   width: 160px;
-  color:red;
+  color: red;
 }
 
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .ant-menu-vertical .ant-menu-item,
@@ -50,28 +50,28 @@
 
 .ant-btn {
   line-height: 1.5715;
-    position: relative;
-    display: inline-block;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    background-image: none;
-    border: 1px solid transparent;
-    box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    touch-action: manipulation;
-    height: 32px;
-    padding: 4px 15px;
-    font-size: 14px;
-    border-radius: 2px;
-    color: rgba(0, 0, 0, 0.85);
-    border-color: #d9d9d9;
-    background: #fff;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.85);
+  border-color: #d9d9d9;
+  background: #fff;
 }
 
 .ant-btn-primary {
@@ -103,14 +103,7 @@
   pointer-events: none;
 }
 
-.ant-btn.btn-with-icon {
-  color: rgba(255,255,255,var(--tw-text-opacity));
-  --tw-text-opacity: 0.7;
-  padding: 4px 15px!important;
-  border: none;
-  display: flex;
-  align-items: center;
-}
+
 
 .ant-btn-primary:hover {
   background-color: #8C8C8C;
@@ -118,60 +111,15 @@
 
 }
 
-.user-upgrade {
 
-  background-color: #000000;
-  border-color: #FFFFFF;
-  text-align: center;
-  border-radius: 100vh;
-  color: #FFF;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .5px;
-  padding: 5px 32px;
-  text-transform: uppercase;
-  transition: all 33ms ease;
-  white-space: nowrap;
-  margin-left: 15px;
-  margin-right: 15px;
+.ant-layout-content {
+  background-color: #282828;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  background-color: #282828;
 }
 
-.user-upgrade:hover {
-  height: 35px;
-  width: 130px;
-  background-color: #000000;
-  border-color: #FFF;
-  color: #FFF;
-}
-
-.user-upgrade:focus {
-  background-color: #000000;
-  border-color: #FFF;
-  color: #FFF;
-}
-
-.user-dropdown {
-  display: flex;
-  background-color: rgba(0,0,0,.4);
-  border-radius: 23px;
-  height: 32px;
-  min-width: 32px;
-  border: 0;
-  cursor: pointer;
-  color: #fff;
-  padding: 2px;
-}
-
-.user-dropdown:hover {
-  background-color: #090909;
-  border-color: #090909;
-  color: #FFF;
-}
-
-.user-dropdown:focus {
-  background-color: #000000;
-}
 
 .flex {
 
@@ -183,7 +131,6 @@
   z-index: 1;
   display: flex;
   height: 60px;
-  width: 1304px;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -219,6 +166,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .nav-link {
   border-radius: 4px;
   height: 40px;
@@ -253,18 +201,20 @@
 }
 
 h1 {
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
 ul {
-  color:#b3b3b4 !important;
+  color: #b3b3b4 !important;
 }
 
 .ul:hover .txunderline {
-  text-decoration: underline ;
+  text-decoration: underline;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
@@ -273,4 +223,35 @@ ul {
 
 /* .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
   background-color: black;
+} */
+/* .layout {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  position: relative;
+  isolation: isolate;
+} */
+
+/* .layout-content {
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "nav-bar main-view now-playing-bar now-playing-bar";
+}
+
+.navigationBar{
+  grid-area: nav-bar;
+    z-index: 3;
+    min-height: 0;
+    display: flex;
+    width: 232px;
+    flex-direction: column;
+    --tw-bg-opacity: 1;
+    background-color: rgba(0,0,0,var(--tw-bg-opacity));
+    padding-top: 1.5rem;
 } */
