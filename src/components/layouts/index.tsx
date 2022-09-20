@@ -1,8 +1,7 @@
 import { Button, Menu, Dropdown } from "antd";
 import Layout, { Content, Footer, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
-
-// import 'antd/dist/antd.min.css';
+import "antd/dist/antd.css";
 import "./index.css";
 import BodyBrowse from "./Pages/Browse";
 import TopList from "./Pages/Browse/TopLists";
@@ -11,11 +10,6 @@ import HomeBody from "./Pages/Home/HomeBody";
 import PlayingBar from "../../components/layouts/Pages/PlayingBar/playingBar";
 import Album from "./Pages/Album/album";
 import React from 'react'
-import MyPlayList from "./Pages/Playlist";
-import MyAlbum from "./Pages/Albums";
-import SiderBar from "./sider";
-import LikedSong from "./Pages/Likedsong";
-
 function getItem(label: string, key: any) {
   return {
     key,
@@ -113,25 +107,16 @@ const MainLayout = () => {
         }}
         className="layout-content"
       >
+
         <HeaderBar></HeaderBar>
-        <Content
-        style={{ 
-          padding:0,
-          overflow: 'hidden'
-        }}
-        >
-          {/* <Album /> */}
+        <Content className="content">
+          <Album />
           {/* <HomeBody /> */}
           {/* <BodyBrowse /> */}
           {/* <TopList/> */}
-          {/* <MyPlayList/> */}
-          {/* <MyAlbum/> */}
-          <LikedSong/>
           
         </Content>
-        {/* can protal */}
-        {/* <PlayingBar /> */}
-        
+        {/*    */}
       </Layout>
     </Layout>
    <PlayingBar />
