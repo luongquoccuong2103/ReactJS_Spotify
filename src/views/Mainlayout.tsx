@@ -9,10 +9,10 @@ import HomeBody from "./Home/HomeBody";
 import PlayingBar from "../components/PlayingBar/playingBar";
 import Album from "./Album/album";
 import MyPlayList from "./Playlist";
-import MyAlbum from "./Albums";
+import MyAlbum from "./MyAlbum/MyAlbum";
 import LikedSong from "./Likedsong";
 import BodyBrowse from "./Browse";
-import TopList from "./Browse/TopLists";
+import TopList from "./Browse/TopLists/TopList";
 import HeaderBar from "../components/Header/header";
 import SiderBar from "../components/Sider/sider";
 import React from "react";
@@ -40,7 +40,7 @@ const MainLayout = () => {
       <Layout
         className="layout"
         style={{
-          overflow: "hidden",
+          
         }}
       >
         <Sider
@@ -62,11 +62,11 @@ const MainLayout = () => {
           <HeaderBar />
           <Content className="main-view content-spacing">
             {/* <Album /> */}
-            <HomeBody />
+            {/* <HomeBody /> */}
             {/* <BodyBrowse/> */}
             {/* <TopList/> */}
             {/* <MyPlayList/> */}
-            {/* <MyAlbum/> */}
+            <MyAlbum/>
             {/* <LikedSong/> */}
           </Content>
           {/* can protal */}
