@@ -224,13 +224,13 @@ ul {
 /* .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
   background-color: black;
 } */
-/* .layout {
+.layout {
   height: 100%;
   width: 100%;
   z-index: 0;
   position: relative;
   isolation: isolate;
-} */
+}
 
 /* .layout-content {
   min-height: 100%;
@@ -255,3 +255,13 @@ ul {
     background-color: rgba(0,0,0,var(--tw-bg-opacity));
     padding-top: 1.5rem;
 } */
+/* 
+.content{
+  
+} */
+
+.footer{
+  position: fixed ;
+  width: 100%;
+  margin-left: -265px;
+}

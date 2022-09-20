@@ -1,5 +1,5 @@
 import { Button, Menu, Dropdown } from "antd";
-import Layout, { Content, Header } from "antd/lib/layout/layout";
+import Layout, { Content, Footer, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
 import "antd/dist/antd.css";
 import "./index.css";
@@ -7,8 +7,9 @@ import BodyBrowse from "./Pages/Browse";
 import TopList from "./Pages/Browse/TopLists";
 import HeaderBar from "./header";
 import HomeBody from "./Pages/Home/HomeBody";
-import PlayingBar from "./Pages/PlayingBar/playingBar";
+import PlayingBar from "../../components/layouts/Pages/PlayingBar/playingBar";
 import Album from "./Pages/Album/album";
+import React from 'react'
 function getItem(label: string, key: any) {
   return {
     key,
@@ -28,6 +29,7 @@ const MainLayout = () => {
   const playlist = [getItem("Liked songs", "6")];
 
   return (
+    <React.Fragment>
     <Layout className="layout">
               <Sider
           width={232}
@@ -107,15 +109,18 @@ const MainLayout = () => {
       >
 
         <HeaderBar></HeaderBar>
-        <Content>
+        <Content className="content">
           <Album />
           {/* <HomeBody /> */}
           {/* <BodyBrowse /> */}
           {/* <TopList/> */}
+          
         </Content>
-        <PlayingBar />
+        {/*    */}
       </Layout>
     </Layout>
+   <PlayingBar />
+    </React.Fragment>
   );
 };
 

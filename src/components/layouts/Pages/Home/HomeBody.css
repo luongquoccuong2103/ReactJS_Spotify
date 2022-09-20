@@ -18,7 +18,7 @@
 
 .media {
     width: 209px;
-    height: 267px;
+    height: 277px;
     background-color: #181818;
     background-position: 50%;
     position: relative;
@@ -81,7 +81,6 @@
 
 .media-image{
     width: 100%;
-    padding-bottom: 100%;
     position: relative;
     background-color: #333;
     background-position: 50%;
