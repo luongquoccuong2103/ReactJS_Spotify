@@ -73,13 +73,11 @@ a:hover{
     color:white
 }
 
-.track-row:hover .track-play-button {
+/* .track-row:hover .track-play-button {
     display: block;
-}
+} */
 
-.group:hover .group-hover\:block {
-    display: block;
-}
+
 
 .play-icon {
     transition: all 33ms cubic-bezier(.3,0,.7,1);
@@ -99,10 +97,15 @@ a:hover{
     font-size: 1rem;
 }
 
-/* .btn-hover:hover .group-hover {
+
+/* .group:hover .group-hover\:block {
+    display: block;
+} */
+/* .test {
+    display:block;
     visibility: hidden;
 } */
 
-.text-hidden {
-    visibility: hidden;
+.group:hover .test{
+    display: block;
 }

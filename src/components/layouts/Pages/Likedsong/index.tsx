@@ -28,7 +28,7 @@ const LikedSong = () => {
             <div>
               <div className="pb-4">
                 <div className="playlist-tracks-header">
-                  <div className="playlist-tracks-grid">
+                  <div className="playlist-tracks-grid child:text-white child:text-opacity-70">
                     <div>#</div>
                     <div className="text-xs uppercase ellipsis-one-line">
                       Title
@@ -67,10 +67,10 @@ const LikedSong = () => {
 
             <div className="mb-8">
               {/* insert api */}
-              <div className='btn-hover'>
-                <div className="playlist-tracks-grid track-row tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
+              <div className='btn-hover group'>
+                <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                   <div className="block">
-                    <div className="flex group">
+                    <div className="flex">
                       <div className="flex group-hover:hidden track-order">
                         <div className="text-description">1</div>
                       </div>
