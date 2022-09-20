@@ -51,14 +51,11 @@ const MainLayout = () => {
           backgroundImage: `linear-gradient(rgba(0,0,0,.8),#121212)`,
           backgroundColor: "gray",
         }}
-        className="layout-content"
+        className=""
       >
         <HeaderBar></HeaderBar>
         <Content
-        style={{ 
-          padding:0,
-          overflow: 'hidden'
-        }}
+        className='main-view content-spacing'
         >
           {/* <Album /> */}
           {/* <HomeBody /> */}
@@ -66,7 +63,7 @@ const MainLayout = () => {
           {/* <TopList/> */}
           {/* <MyPlayList/> */}
           {/* <MyAlbum/> */}
-          <LikedSong/>
+          {/* <LikedSong/> */}
           
         </Content>
         {/* can protal */}
