@@ -8,7 +8,6 @@ import React from "react";
 const HomeBody = () => {
   return (
     <React.Fragment>
-     
       <div className="greeting">
         <h2 _ngcontent-vgb-c82="" className="text-3xl text-white">
           Good Morning

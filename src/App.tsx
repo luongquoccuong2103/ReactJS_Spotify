@@ -1,7 +1,7 @@
 
 import "antd/dist/antd.css";
 import "./App.css";
-import MainLayout from "./views/Mainlayout";
+import MainLayout from "./views/MainLayout";
 
 
 function App() {
