@@ -118,13 +118,13 @@ const MainLayout = () => {
           overflow: 'hidden'
         }}
         >
-          <Album />
+          {/* <Album /> */}
           {/* <HomeBody /> */}
           {/* <BodyBrowse /> */}
           {/* <TopList/> */}
           {/* <MyPlayList/> */}
           {/* <MyAlbum/> */}
-          {/* <LikedSong/> */}
+          <LikedSong/>
           
         </Content>
         {/* can protal */}
