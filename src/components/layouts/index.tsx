@@ -10,6 +10,10 @@ import HomeBody from "./Pages/Home/HomeBody";
 import PlayingBar from "../../components/layouts/Pages/PlayingBar/playingBar";
 import Album from "./Pages/Album/album";
 import React from 'react'
+import MyPlayList from "./Pages/Playlist";
+import MyAlbum from "./Pages/Albums";
+import SiderBar from "./sider";
+import LikedSong from "./Pages/Likedsong";
 function getItem(label: string, key: any) {
   return {
     key,
@@ -107,16 +111,25 @@ const MainLayout = () => {
         }}
         className="layout-content"
       >
-
         <HeaderBar></HeaderBar>
-        <Content className="content">
+        <Content
+        style={{ 
+          padding:0,
+          overflow: 'hidden'
+        }}
+        >
           <Album />
           {/* <HomeBody /> */}
           {/* <BodyBrowse /> */}
           {/* <TopList/> */}
+          {/* <MyPlayList/> */}
+          {/* <MyAlbum/> */}
+          {/* <LikedSong/> */}
           
         </Content>
-        {/*    */}
+        {/* can protal */}
+        {/* <PlayingBar /> */}
+        
       </Layout>
     </Layout>
    <PlayingBar />
