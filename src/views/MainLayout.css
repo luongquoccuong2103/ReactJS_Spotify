@@ -4,7 +4,8 @@
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
-  overflow: auto;
+  overflow: scroll;
+  
 }
 
 .content-spacing {
@@ -49,6 +50,3 @@
   overflow: hidden;
 }
 
-.navigationBar{ 
-  width: 1000px
-}

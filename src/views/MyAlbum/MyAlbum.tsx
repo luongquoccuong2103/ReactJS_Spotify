@@ -1,12 +1,13 @@
-import "./index.css";
+import Play from "../../components/assets/image/MyAlbum/play";
+import "./MyAlbum.css";
 
-const MyPlayList = () => {
+const MyAlbum = () => {
   return (
     <>
       <div className="block">
         <div className="common-grid">
           {/* call api */}
-          <div className="contented max-h-[240px]">
+          <div className="contented max-w-[240px]">
             <a className="flex flex-col flex-1" href="#">
               <div className="media-cover">
                 <div
@@ -19,16 +20,7 @@ const MyPlayList = () => {
                 <div className="play-button-overlay">
                   <div className="flex play-icon control-button large text-white bg-primary">
                     <div className="play-icon svgicon text-[1.5rem]">
-                      <svg
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="100%"
-                        width="100%"
-                        preserveAspectRatio="xMidYMid meet"
-                        focusable="false"
-                      >
-                        <path d="M4.018 14L14.41 8 4.018 2z"></path>
-                      </svg>
+                      <Play />
                     </div>
                   </div>
                 </div>
@@ -36,9 +28,9 @@ const MyPlayList = () => {
               <div _ngcontent-yvy-c84="" className="media-description">
                 <div className="font-bold text-white ellipsis-one-line hover:text-white">
                   {" "}
-                  Danh sách phát của tôi #1{" "}
+                  POP/STARS{" "}
                 </div>
-                <div className="text-description"></div>
+                <div className="text-description">K/DA</div>
               </div>
             </a>
           </div>
@@ -48,4 +40,4 @@ const MyPlayList = () => {
   );
 };
 
-export default MyPlayList;
+export default MyAlbum;
