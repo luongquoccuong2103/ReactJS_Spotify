@@ -4,16 +4,19 @@ import Sider from "antd/lib/layout/Sider";
 
 // import 'antd/dist/antd.min.css';
 import "./index.css";
-import BodyBrowse from "./Pages/Browse";
-import TopList from "./Pages/Browse/TopLists";
-import HeaderBar from "./header";
-import HomeBody from "./Pages/Home/HomeBody";
-import PlayingBar from "./Pages/PlayingBar/playingBar";
-import Album from "./Pages/Album/album";
-import MyPlayList from "./Pages/Playlist";
-import MyAlbum from "./Pages/Albums";
-import SiderBar from "./sider";
-import LikedSong from "./Pages/Likedsong";
+
+
+
+import HomeBody from "./Home/HomeBody";
+import PlayingBar from "../components/PlayingBar/playingBar";
+import Album from "./Album/album";
+import MyPlayList from "./Playlist";
+import MyAlbum from "./Albums";
+import LikedSong from "./Likedsong";
+import BodyBrowse from "./Browse";
+import TopList from "./Browse/TopLists";
+import HeaderBar from "../components/Header/header";
+import SiderBar from "../components/Sider/sider";
 
 function getItem(label: string, key: any) {
   return {
@@ -53,17 +56,17 @@ const MainLayout = () => {
         }}
         className=""
       >
-        <HeaderBar></HeaderBar>
+        <HeaderBar/>
         <Content
         className='main-view content-spacing'
         >
           {/* <Album /> */}
           {/* <HomeBody /> */}
-          {/* <BodyBrowse /> */}
+          {/* <BodyBrowse/> */}
           {/* <TopList/> */}
           {/* <MyPlayList/> */}
           {/* <MyAlbum/> */}
-          {/* <LikedSong/> */}
+          <LikedSong/>
           
         </Content>
         {/* can protal */}
