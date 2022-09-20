@@ -1,12 +1,13 @@
 
 import "antd/dist/antd.css";
 import "./App.css";
-import MainLayout from "./components/layouts";
+import MainLayout from "./views/Mainlayout";
+
 
 function App() {
   return (
     <>
-      <MainLayout />
+      <MainLayout/>
     </>
   );
 }
