@@ -1,3 +1,4 @@
+import Play from "../../components/assets/image/LikedSong/play";
 import "./index.css";
 
 const LikedSong = () => {
@@ -68,16 +69,7 @@ const LikedSong = () => {
                 <div className="hidden pt-1 group-hover:block track-play-button">
                   <div className="flex">
                     <div className="play-icon svg-icon-play icon">
-                      <svg
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="15.68"
-                        width="15.68"
-                        preserveAspectRatio="xMidYMid meet"
-                        focusable="false"
-                      >
-                        <path d="M4.018 14L14.41 8 4.018 2z"></path>
-                      </svg>
+                      <Play />
                     </div>
                   </div>
                 </div>
