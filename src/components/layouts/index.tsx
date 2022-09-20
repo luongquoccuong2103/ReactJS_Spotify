@@ -1,7 +1,8 @@
 import { Button, Menu, Dropdown } from "antd";
 import Layout, { Content, Footer, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
-import "antd/dist/antd.css";
+
+// import 'antd/dist/antd.min.css';
 import "./index.css";
 import BodyBrowse from "./Pages/Browse";
 import TopList from "./Pages/Browse/TopLists";
@@ -14,6 +15,7 @@ import MyPlayList from "./Pages/Playlist";
 import MyAlbum from "./Pages/Albums";
 import SiderBar from "./sider";
 import LikedSong from "./Pages/Likedsong";
+
 function getItem(label: string, key: any) {
   return {
     key,
