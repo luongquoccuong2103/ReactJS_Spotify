@@ -1,4 +1,5 @@
-import "./index.css";
+import Play from "../../components/assets/image/MyAlbum/play";
+import "./MyAlbum.css";
 
 const MyAlbum = () => {
   return (
@@ -19,16 +20,7 @@ const MyAlbum = () => {
                 <div className="play-button-overlay">
                   <div className="flex play-icon control-button large text-white bg-primary">
                     <div className="play-icon svgicon text-[1.5rem]">
-                      <svg
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="100%"
-                        width="100%"
-                        preserveAspectRatio="xMidYMid meet"
-                        focusable="false"
-                      >
-                        <path d="M4.018 14L14.41 8 4.018 2z"></path>
-                      </svg>
+                      <Play />
                     </div>
                   </div>
                 </div>

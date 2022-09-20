@@ -1,4 +1,7 @@
 import React from "react";
+import PlayIcon from "../../components/assets/image/Album/playIcon";
+import Track from "../../components/assets/image/Album/track";
+import TrackPlay from "../../components/assets/image/Album/trackPlay";
 import "./album.css";
 
 const Album = () => {
@@ -24,17 +27,7 @@ const Album = () => {
           title="Play"
           className="flex play-icon control-button large text-white bg-primary rounded-full play-button-overlay"
         >
-          <svg
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-            height="60%"
-            width="60%"
-            preserveAspectRatio="xMidYMid meet"
-            focusable="false"
-            fill="#FFFFFF"
-          >
-            <path d="M4.018 14L14.41 8 4.018 2z" ></path>
-          </svg>
+          <PlayIcon />
         </div>
       </div>
       <div className="pb-4">
@@ -42,7 +35,7 @@ const Album = () => {
           <div className="album-tracks-grid">
             <div>#</div>
             <div className="text-xs uppercase ellipsis-one-line">Title</div>
-            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className="album-track-icon" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M7.999 3h-1v5h3V7h-2V3zM7.5 0a7.5 7.5 0 100 15 7.5 7.5 0 000-15zm0 14A6.508 6.508 0 011 7.5C1 3.916 3.916 1 7.5 1S14 3.916 14 7.5 11.084 14 7.5 14z" fill="currentColor"></path></svg>
+            <Track />
           </div>
         </div>
         <div className="mb-8">
@@ -59,17 +52,7 @@ const Album = () => {
                       title="Play"
                       className="flex "
                     >
-                      <svg
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="100%"
-                        width="100%"
-                        preserveAspectRatio="xMidYMid meet"
-                        focusable="false"
-                       
-                      >
-                        <path d="M4.018 14L14.41 8 4.018 2z"></path>
-                      </svg>
+                      <TrackPlay />
                     </div>
                   </div>
                 </div>
@@ -77,7 +60,7 @@ const Album = () => {
               <div className="track-infos">
                 <div className="flex flex-col">
                   <div className="ellipsis-one-line text-base text-white">
-                    Chúng Ta Của Hiện Tại 
+                    Chúng Ta Của Hiện Tại
                   </div>
                   <div className="">
                     <a
@@ -89,7 +72,7 @@ const Album = () => {
                   </div>
                 </div>
               </div>
-              <div  className="text-time"> 5:01 </div>
+              <div className="text-time"> 5:01 </div>
             </div>
           </div>
         </div>
