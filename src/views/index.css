@@ -1,0 +1,54 @@
+
+.main-view {
+  scroll-behavior: smooth;
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.content-spacing {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+}
+
+.media-cover-2 {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  background-color: #333;
+  background-position: 50%;
+  background-size: cover;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+}
+
+.ellipsis-one-line {
+  -webkit-line-clamp: 1;
+  white-space: unset;
+  word-break: break-all;
+}
+
+.text-description {
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-text-opacity: 0.5;
+}
+
+.ellipsis-one-line,
+.text-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.navigationBar{ 
+  width: 1000px
+}
