@@ -61,9 +61,9 @@ const MainLayout = () => {
             {/* <HomeBody /> */}
             {/* <BodyBrowse /> */}
             {/* <TopList /> */}
-            {/* <MyPlayList /> */}
+            <MyPlayList />
             <MyAlbum />
-            <LikedSong />
+            {/* <LikedSong /> */}
             <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
           </Content>
           {/* can protal */}
