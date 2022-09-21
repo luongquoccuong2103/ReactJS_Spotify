@@ -58,11 +58,12 @@ const MainLayout = () => {
           <HeaderBar />
           <Content className="main-view content-spacing">
             {/* <Album /> */}
-            {/* <HomeBody /> */}
+            {/* <MyAlbum /> */}
+            <HomeBody />
             {/* <BodyBrowse /> */}
             {/* <TopList /> */}
-            <MyPlayList />
-            <MyAlbum />
+            {/* <MyPlayList /> */}
+
             {/* <LikedSong /> */}
             <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
           </Content>
