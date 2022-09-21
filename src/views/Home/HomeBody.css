@@ -64,7 +64,7 @@
     right: 16px;
     bottom: 36%;
     padding-left: 14px;
-    position: absolute;
+    
     transition: all .3s;
     transform: translateY(10px);
 }

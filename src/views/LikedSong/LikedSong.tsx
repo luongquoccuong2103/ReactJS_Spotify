@@ -1,5 +1,5 @@
 import Play from "../../components/assets/image/LikedSong/play";
-import "./index.css";
+import "./LikedSong.css";
 
 const LikedSong = () => {
   return (

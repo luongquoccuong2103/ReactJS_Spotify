@@ -1,7 +1,6 @@
 import { Button, Menu, Dropdown } from "antd";
 import Layout, { Content, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
-import "antd/dist/antd.css";
 import "./header.css";
 import LeftArrowButton from '../assets/image/Header/leftArrowButton'
 import RightArrowButton from "../assets/image/Header/rightArrowButton";

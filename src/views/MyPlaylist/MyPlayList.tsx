@@ -1,5 +1,5 @@
 import Play from "../../components/assets/image/MyPlayList/play";
-import "./index.css";
+import "./MyPlayList.css";
 
 const MyPlayList = () => {
   return (
