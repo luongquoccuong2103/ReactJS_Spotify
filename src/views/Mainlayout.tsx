@@ -1,7 +1,7 @@
 import { Button, Menu, Dropdown } from 'antd';
 import Layout, { Content, Footer, Header } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import 'antd/dist/antd.min.css';
 import './MainLayout.css';
 
@@ -15,7 +15,6 @@ import BodyBrowse from './Browse';
 import TopList from './Browse/TopLists/TopList';
 import HeaderBar from '../components/Header/header';
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import SiderBar from '../components/Sider/sider';
 
 function getItem(label: string, key: any) {
@@ -57,9 +56,17 @@ const MainLayout = () => {
         >
           <HeaderBar />
           <Content className="main-view content-spacing">
+            <Routes>
+              <Route path="/ReactJS_Spotify" element={<HomeBody />}></Route>
+              <Route path="/album" element={<MyAlbum />} />
+              <Route path="/browse" element={<BodyBrowse />} />
+              <Route path="/myPlayList" element={<MyPlayList />} />
+              <Route path="/likedSong" element={<LikedSong />} />
+              <Route path="/search" element={<LikedSong />} />
+            </Routes>
             {/* <Album /> */}
             {/* <MyAlbum /> */}
-            <HomeBody />
+            {/* <HomeBody /> */}
             {/* <BodyBrowse /> */}
             {/* <TopList /> */}
             {/* <MyPlayList /> */}

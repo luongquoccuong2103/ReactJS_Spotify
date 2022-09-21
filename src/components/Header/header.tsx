@@ -1,13 +1,13 @@
-import { Button, Menu, Dropdown } from 'antd';
-import Layout, { Content, Header } from 'antd/lib/layout/layout';
-import Sider from 'antd/lib/layout/Sider';
-import './header.css';
-import LeftArrowButton from '../assets/image/Header/leftArrowButton';
-import RightArrowButton from '../assets/image/Header/rightArrowButton';
-import CupStraw from '../assets/image/Header/cupStraw';
-import HeartEyes from '../assets/image/Header/heartEyes';
-import GitHub from '../assets/image/Header/gitHub';
-import CaretDownFill from '../assets/image/Header/caretDownFill';
+import { Button, Menu, Dropdown } from "antd";
+import Layout, { Content, Header } from "antd/lib/layout/layout";
+import Sider from "antd/lib/layout/Sider";
+import "./header.css";
+import LeftArrowButton from '../assets/image/Header/leftArrowButton'
+import RightArrowButton from "../assets/image/Header/rightArrowButton";
+import CupStraw from "../assets/image/Header/cupStraw";
+import HeartEyes from "../assets/image/Header/heartEyes";
+import GitHub from "../assets/image/Header/gitHub";
+import CaretDownFill from "../assets/image/Header/caretDownFill";
 const HeaderBar = () => {
   const menu = (
     <Menu
