@@ -1,5 +1,5 @@
-import Play from "../../components/assets/image/MyPlayList/play";
-import "./index.css";
+import Play from '../../components/assets/image/MyPlayList/play';
+import './MyPlayList.css';
 
 const MyPlayList = () => {
   return (
@@ -13,8 +13,8 @@ const MyPlayList = () => {
                 <div
                   className="mb-4 media-cover-2"
                   style={{
-                    borderRadius: "initial",
-                    backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`,
+                    borderRadius: 'initial',
+                    backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`
                   }}
                 ></div>
                 <div className="play-button-overlay">
@@ -27,8 +27,8 @@ const MyPlayList = () => {
               </div>
               <div _ngcontent-yvy-c84="" className="media-description">
                 <div className="font-bold text-white ellipsis-one-line hover:text-white">
-                  {" "}
-                  Danh sách phát của tôi #1{" "}
+                  {' '}
+                  Danh sách phát của tôi #1{' '}
                 </div>
                 <div className="text-description"></div>
               </div>
