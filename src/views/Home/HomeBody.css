@@ -56,22 +56,6 @@
     overflow-y: hidden;
 }
 
-.play-button-overlay {
-    background-color: #1DB954;
-    align-items: center;
-    width: 48px;
-    height: 48px;
-    right: 16px;
-    bottom: 36%;
-    padding-left: 14px;
-    
-    transition: all .3s;
-    transform: translateY(10px);
-}
-
-.media:hover+.play-button-overlay {
-    background-color: red;
-}
 
 .media:hover {
     transition: .3s;

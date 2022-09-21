@@ -26,18 +26,7 @@
   display: grid;
 }
 
-.contented {
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
 
-.contented:hover {
-  background-color: #282828;
-}
 
 .media-cover {
     display: flex;
