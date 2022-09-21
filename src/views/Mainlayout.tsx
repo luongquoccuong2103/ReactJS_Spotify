@@ -14,8 +14,8 @@ import LikedSong from './LikedSong/LikedSong';
 import BodyBrowse from './Browse';
 import TopList from './Browse/TopLists/TopList';
 import HeaderBar from '../components/Header/header';
-import SiderBar from '../components/Sider/sider';
 import React from 'react';
+import SiderBar from '../components/Sider/sider';
 
 function getItem(label: string, key: any) {
   return {

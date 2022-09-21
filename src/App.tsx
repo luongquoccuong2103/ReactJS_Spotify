@@ -1,8 +1,8 @@
 import 'antd/dist/antd.css';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import MainLayout from './views/Mainlayout';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (

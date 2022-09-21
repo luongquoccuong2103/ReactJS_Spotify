@@ -8,7 +8,7 @@ const LikedSong = () => {
         <div
           className="media-cover-2"
           style={{
-            backgroundImage: `url(https://data.whicdn.com/images/315873335/original.jpg)`,
+            backgroundImage: `url(https://data.whicdn.com/images/315873335/original.jpg)`
           }}
         ></div>
         <div className="flex flex-col">
@@ -28,9 +28,7 @@ const LikedSong = () => {
               <div>#</div>
               <div className="text-xs uppercase ellipsis-one-line">Title</div>
               <div className="text-xs uppercase ellipsis-one-line">Album</div>
-              <div className="text-xs uppercase ellipsis-one-line">
-                Date added
-              </div>
+              <div className="text-xs uppercase ellipsis-one-line">Date added</div>
               <div
                 aria-hidden="true"
                 title="duration"
@@ -81,43 +79,35 @@ const LikedSong = () => {
                 <div
                   className="media-cover-2"
                   style={{
-                    backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`,
+                    backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`
                   }}
                 ></div>
               </div>
               <div className="flex flex-col">
-                <div className="ellipsis-one-line text-base text-white">
-                  {" "}
-                  POP/STARS{" "}
-                </div>
+                <div className="ellipsis-one-line text-base text-white"> POP/STARS </div>
                 <div className="flex">
                   <a
                     className="text-description link-subtle ellipsis-one-line hover:underline"
                     href="#"
                   >
-                    {" "}
-                    K/DA{" "}
+                    {' '}
+                    K/DA{' '}
                   </a>
-                  <span className="mr-1 comma-separator ng-star-inserted">
-                    ,
-                  </span>
+                  <span className="mr-1 comma-separator ng-star-inserted">,</span>
                   <a
                     className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
                     href="#"
                   >
-                    {" "}
-                    Madison Beer{" "}
+                    {' '}
+                    Madison Beer{' '}
                   </a>
                 </div>
               </div>
             </div>
 
-            <a
-              className="text-description link-subtle hover:underline"
-              href="#"
-            >
-              {" "}
-              POP/STARS{" "}
+            <a className="text-description link-subtle hover:underline" href="#">
+              {' '}
+              POP/STARS{' '}
             </a>
 
             <div className="text-description"> Sep 19, 2022 </div>

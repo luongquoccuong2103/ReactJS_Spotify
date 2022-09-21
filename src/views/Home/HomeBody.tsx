@@ -43,7 +43,7 @@ const HomeBody = () => {
                     <path d="M4.018 14L14.41 8 4.018 2z"></path>
                   </svg>
                 </div>
-                <div className="font-bold text-white ellipsis-one-line hover:text-white pb-20">
+                <div className="font-bold text-white ellipsis-one-line hover:text-white">
                   {' '}
                   Chúng Ta Của Hiện Tại{' '}
                 </div>

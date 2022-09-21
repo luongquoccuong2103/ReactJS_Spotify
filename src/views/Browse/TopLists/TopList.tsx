@@ -1,4 +1,4 @@
-import "./index.css";
+import './TopList.css';
 
 const TopList = () => {
   return (
@@ -13,8 +13,8 @@ const TopList = () => {
                 <div
                   className="mb-4 media-cover-2"
                   style={{
-                    borderRadius: "initial",
-                    backgroundImage: `url(https://i.scdn.co/image/ab67706f00000003e8641a419c367f9504f587aa)`,
+                    borderRadius: 'initial',
+                    backgroundImage: `url(https://i.scdn.co/image/ab67706f00000003e8641a419c367f9504f587aa)`
                   }}
                 ></div>
                 <div className="play-button-overlay">
@@ -38,10 +38,7 @@ const TopList = () => {
               <div className="font-bold text-white ellipsis-one-line hover:text-white">
                 Today's Top Hits
               </div>
-              <div className="text-description">
-                {" "}
-                Nicki Minaj is on top of the Hottest 50!{" "}
-              </div>
+              <div className="text-description"> Nicki Minaj is on top of the Hottest 50! </div>
             </a>
           </div>
         </div>
