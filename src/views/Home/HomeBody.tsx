@@ -12,10 +12,8 @@ const HomeBody = () => {
   return (
     <React.Fragment>
       <div className="greeting">
-        <h2 _ngcontent-vgb-c82="" className="text-3xl text-white">
-          Good Morning
-        </h2>
-        <h3 _ngcontent-vgb-c82="" className="mt-3 text-white text-opacity-90">
+        <h2 className="text-3xl text-white">Good Morning</h2>
+        <h3 className="mt-3 text-white text-opacity-90">
           Thanks for visiting ReactJS Spotify. It was built with TailwindCSS and Ant-Design by
           DuatTQ and CuongLQ. Cheers 🍺
         </h3>
