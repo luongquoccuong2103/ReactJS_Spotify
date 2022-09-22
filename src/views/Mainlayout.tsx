@@ -76,7 +76,7 @@ const MainLayout = () => {
           {/* can protal */}
         </Layout>
       </Layout>
-      {/* <PlayingBar /> */}
+      <PlayingBar />
     </React.Fragment>
   );
 };

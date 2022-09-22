@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './App.css';
 import MainLayout from './views/Mainlayout';
 import { BrowserRouter } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const CLIENT_ID = 'fdb817872fb14108bb1802655f229199'; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize';
@@ -16,7 +16,6 @@ const getReturnedParamsFromSpotifyAuth = (hash: any) => {
   const stringAfterHashtag = hash.substring(1);
   const paramsInUrl = stringAfterHashtag.split('&');
   const paramsSplitUp = paramsInUrl.reduce((accumulater: any, currentValue: any) => {
-    console.log(currentValue);
     const [key, value] = currentValue.split('=');
     accumulater[key] = value;
     return accumulater;
@@ -32,7 +31,7 @@ function App() {
         window.location.hash
       );
 
-      localStorage.clear();
+      // localStorage.clear();
 
       localStorage.setItem('accessToken', access_token);
       localStorage.setItem('tokenType', token_type);
@@ -40,14 +39,23 @@ function App() {
     }
   });
 
+  const token = localStorage.getItem('accessToken');
+  console.log(token);
+
+  if (!token) {
+    window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
+  }
+
   const handleLogin = () => {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
   return (
-    <BrowserRouter>
-      {/* <MainLayout /> */}
-      <button onClick={handleLogin}>Login</button>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <MainLayout />
+        {/* <button onClick={handleLogin}>Login</button> */}
+      </BrowserRouter>
+    </>
   );
 }
 
