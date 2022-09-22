@@ -1,3 +1,4 @@
+import Play from '../assets/image/MyAlbum/play';
 import './MusicCard.css';
 
 const MusicCard = (props: any) => {
@@ -16,8 +17,8 @@ const MusicCard = (props: any) => {
           <div className="play-button-overlay">
             <div className="flex play-icon control-button large text-white bg-primary">
               <div className="play-icon svgicon text-[1.5rem]">
-                {/* <Play /> */}
-                {props.img}
+                <Play />
+                {/* {props.img} */}
               </div>
             </div>
           </div>

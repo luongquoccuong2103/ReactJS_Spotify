@@ -72,7 +72,6 @@ const MainLayout = () => {
             {/* <MyPlayList /> */}
 
             {/* <LikedSong /> */}
-            <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
           </Content>
           {/* can protal */}
         </Layout>

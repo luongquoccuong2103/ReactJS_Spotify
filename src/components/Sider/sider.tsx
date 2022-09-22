@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import { Menu } from 'antd';
 import Logo from '../assets/image/Sider/logo';
 import './sider.css';
@@ -23,7 +23,7 @@ const SiderBar = () => {
         >
           {/* sau dung nav link de css chu */}
           <Menu.Item>
-            <Link to="/ReactJS_Spotify">Home</Link>
+            <NavLink to="/ReactJS_Spotify">Home</NavLink>
           </Menu.Item>
           <Menu.Item>
             <Link to="search">Search</Link>
