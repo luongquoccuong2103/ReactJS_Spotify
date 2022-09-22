@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink , Link} from 'react-router-dom';
 import { Menu } from 'antd';
 import Logo from '../assets/image/Sider/logo';
 import './sider.css';
@@ -23,19 +23,19 @@ const SiderBar = () => {
         >
           {/* sau dung nav link de css chu */}
           <Menu.Item>
-            <Link to="/ReactJS_Spotify">Home</Link>
+            <NavLink to="/ReactJS_Spotify">Home</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <Link to="search">Search</Link>
+            <NavLink to="search">Search</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <Link to="browse">Browse</Link>
+            <NavLink to="browse">Browse</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <Link to="myPlayList">My Playlists</Link>
+            <NavLink to="myPlayList">My Playlists</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <Link to="album">My Albums</Link>
+            <NavLink to="myAlbum">My Albums</NavLink>
           </Menu.Item>
 
           <div className="flex flex-col pt-[1.5rem] ">
@@ -46,9 +46,12 @@ const SiderBar = () => {
             <ul className="h-[40px]">
               <li className="px-2">
                 <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
-                  <a className="flex items-center px-4 rounded-[4px] bg-[black] w-full" href="#">
+                  <NavLink
+                    to="likedSong"
+                    className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
+                  >
                     Liked songs
-                  </a>
+                  </NavLink>
                 </Menu.Item>
               </li>
             </ul>

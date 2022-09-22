@@ -142,11 +142,7 @@
   position: absolute;
 }
 
-.flex:hover .media-cover .play-button-overlay {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0px);
-}
+
 
 .play-icon {
   transition: all 33ms cubic-bezier(0.3, 0, 0.7, 1);

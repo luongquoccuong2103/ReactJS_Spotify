@@ -28,19 +28,6 @@
     align-items: center;
 }
 
-.play-button-overlay{
-    height: 3rem;
-    width: 3rem;
-    background-color: #1DB954;
-    align-items: center;
-    padding-left: 14px;
-    margin-bottom: 1rem;
-}
-
-.play-button-overlay:hover{
-    height: 50px;
-    width: 50px;
-}
 
 .playlist-trach-header{
     z-index: 2;
@@ -59,13 +46,6 @@
     
 }
 
-.album-tracks-grid{
-    display: grid;
-    grid-template-columns: 24px 6fr minmax(120px,1fr);
-    grid-gap: 16px;
-    gap: 16px;
-    color: #B3B3B3;
-}
 
 .album-track-icon{
     width: 16px;
@@ -102,14 +82,14 @@
     
 }
 
-.group:hover {
+/* .group-album:hover {
     background-color: #2E2E2E;
-}
+} */
 
 .track-play-button{
     width: 16px;
     height: 16px;
-    padding-top: 14px;
+
     
 }
 
@@ -126,9 +106,9 @@
 .playButton{
     margin-right: 14px;
 }
-.group{
+.group-album{
     display: flex;
-    width: 40px;
+    
 }
 
 .text-time{
@@ -147,3 +127,17 @@
     
     width: 83%;
 }
+
+.album-tracks-grid{
+    display: grid;
+    grid-template-columns: 24px 6fr minmax(120px,1fr);
+    grid-gap: 16px;
+    gap: 16px;
+    color: #B3B3B3;
+}
+
+.play-icon{
+    width: 16px;
+    height: 16px;
+}
+

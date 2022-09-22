@@ -16,6 +16,8 @@ import TopList from './Browse/TopLists/TopList';
 import HeaderBar from '../components/Header/header';
 import React from 'react';
 import SiderBar from '../components/Sider/sider';
+import Search from './Search/Search';
+import ArtistDetail from './ArtistDetail/ArtistDetail';
 
 function getItem(label: string, key: any) {
   return {
@@ -57,27 +59,28 @@ const MainLayout = () => {
           <HeaderBar />
           <Content className="main-view content-spacing">
             <Routes>
-              <Route path="/ReactJS_Spotify" element={<HomeBody />}></Route>
-              <Route path="/album" element={<MyAlbum />} />
+              <Route path="/ReactJS_Spotify" element={<HomeBody />} />
+              <Route path="/ReactJS_Spotify/album" element={<Album />} />
+
+              <Route path="/myAlbum" element={<MyAlbum />} />
               <Route path="/browse" element={<BodyBrowse />} />
+              <Route path="/browse/topList" element={<TopList />} />
+              <Route path="/browse/topList/myPlayList" element={<MyPlayList />} />
               <Route path="/myPlayList" element={<MyPlayList />} />
               <Route path="/likedSong" element={<LikedSong />} />
-              <Route path="/search" element={<LikedSong />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/search/artistDetail" element={<ArtistDetail />} />
+              <Route path="/search/artistDetail/album" element={<Album />} />
+              <Route path="/search/album" element={<Album />} />
+              <Route path="/search/album/artistDetail" element={<ArtistDetail />} />
             </Routes>
-            {/* <Album /> */}
-            {/* <MyAlbum /> */}
-            {/* <HomeBody /> */}
-            {/* <BodyBrowse /> */}
-            {/* <TopList /> */}
-            {/* <MyPlayList /> */}
 
-            {/* <LikedSong /> */}
             <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
           </Content>
-          {/* can protal */}
+        
         </Layout>
       </Layout>
-      {/* <PlayingBar /> */}
+      <PlayingBar />
     </React.Fragment>
   );
 };

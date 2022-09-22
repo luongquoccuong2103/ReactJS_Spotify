@@ -1,0 +1,108 @@
+.contented {
+    border-radius: 4px;
+    background-color: #181818;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .contented:hover {
+    background-color: #333333;
+  }
+  
+  .media-cover {
+    display: flex;
+    position: relative;
+  }
+  .media-cover-2 {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    background-color: #333;
+    background-position: 50%;
+    background-size: cover;
+   
+  }
+  
+  .play-button-overlay {
+    right: 10px;
+    bottom: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    transform: translateY(10px);
+    position: absolute;
+  }
+  
+  .flex:hover .media-cover .play-button-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  
+  .play-icon {
+    transition: all 33ms cubic-bezier(0.3, 0, 0.7, 1);
+    border: none;
+    border-radius: 50%;
+  }
+  
+  .control-button {
+    color: #b3b3b3;
+    position: relative;
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .control-button.large {
+    height: 3rem;
+    width: 3rem;
+  }
+  
+  .text-white {
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+  
+  .bg-primary {
+    --tw-bg-opacity: 1;
+    background-color: rgba(29, 185, 84, var(--tw-bg-opacity));
+  }
+  
+  .svgicon {
+    display: inline-block;
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    font-size: 1.5rem;
+  }
+  
+  .ellipsis-one-line {
+    -webkit-line-clamp: 1;
+    white-space: unset;
+    word-break: break-all;
+  }
+  
+  .text-description {
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+    --tw-text-opacity: 0.5;
+  }
+  
+  .ellipsis-one-line,
+  .text-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+  }
+  

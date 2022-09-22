@@ -1,8 +1,9 @@
+import { NavLink } from 'react-router-dom';
 import './TopList.css';
 
 const TopList = () => {
   return (
-    <>
+    <NavLink to="myPlayList">
       <h2 className="mb-4 text-heading">Top Lists</h2>
       <div className="block">
         <div className="common-grid">
@@ -43,7 +44,7 @@ const TopList = () => {
           </div>
         </div>
       </div>
-    </>
+    </NavLink>
   );
 };
 

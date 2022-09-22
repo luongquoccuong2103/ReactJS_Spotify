@@ -1,0 +1,11 @@
+.artist-image{
+    width: 192px;
+    height: 192px;
+}
+
+.artist-tracks-grid{
+    display: grid;
+    grid-template-columns: [index] 24px [first] 6fr [var1] 4fr [last] minmax(120px,1fr);
+    grid-gap: 16px;
+    gap: 16px;
+}

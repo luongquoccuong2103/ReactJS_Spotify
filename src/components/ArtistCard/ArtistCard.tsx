@@ -1,49 +1,38 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import React from 'react';
-import './MusicCard.css';
+import './ArtistCard.css';
 import Album from '../../views/Album/album';
 
-const MusicCard = (props: any) => {
+const ArtistCard = (props: any) => {
   return (
     <React.Fragment>
-     
-      <NavLink to="album" className="contented  max-h-[240px]">
-    
+      <NavLink to="artistDetail" className="contented  max-h-[240px]">
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">
             <div
               className="mb-4 media-cover-2 bg-white"
               style={{
-                borderRadius: 'initial',
-                // backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`
+                borderRadius: '500px',
+
                 backgroundImage: `url(${props.url})`
               }}
             ></div>
             <div className="play-button-overlay">
               <div className="flex play-icon control-button large text-white bg-primary">
-                <div className="play-icon svgicon text-[1.5rem]">
-                  {/* <Play /> */}
-                  {props.img}
-                </div>
+                <div className="play-icon svgicon text-[1.5rem]">{props.img}</div>
               </div>
             </div>
           </div>
           <div _ngcontent-yvy-c84="" className="media-description">
             <div className="font-bold text-white ellipsis-one-line hover:text-white">
-              {' '}
-              {/* POP/STARS */}
-              {props.mediades}{' '}
+              {props.mediades}
             </div>
-            <div className="text-description">
-              {/* K/DA */}
-              {props.description}
-            </div>
+            <div className="text-description">{props.description}</div>
           </div>
         </a>
       </NavLink>
     </React.Fragment>
-    
   );
 };
 
-export default MusicCard;
+export default ArtistCard;

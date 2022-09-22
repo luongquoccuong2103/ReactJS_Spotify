@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 import "./index.css";
 
 const BodyBrowse = () => {
@@ -14,9 +15,9 @@ const BodyBrowse = () => {
                   backgroundImage: `url(https://t.scdn.co/media/derived/toplists_11160599e6a04ac5d6f2757f5511778f_0_0_275_275.jpg)`,
                 }}
               ></div>
-              <div className="category-name ellipsis-one-line txunderline">
+              <NavLink to="topList" className="category-name ellipsis-one-line txunderline">
                 Top Lists
-              </div>
+              </NavLink>
             </a>
           </div>
           <div>
@@ -66,9 +67,9 @@ const BodyBrowse = () => {
                   backgroundImage: `url(https://t.scdn.co/media/derived/toplists_11160599e6a04ac5d6f2757f5511778f_0_0_275_275.jpg)`,
                 }}
               ></div>
-              <div className="category-name ellipsis-one-line txunderline">
+              <NavLink to="topList" className="category-name ellipsis-one-line txunderline">
                 Top Lists
-              </div>
+              </NavLink>
             </a>
           </div>
           <div>

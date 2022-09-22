@@ -2,6 +2,7 @@ import { Button, Menu, Dropdown } from "antd";
 import Layout, { Content, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
 import "./header.css";
+import { useNavigate } from "react-router-dom";
 import LeftArrowButton from '../assets/image/Header/leftArrowButton'
 import RightArrowButton from "../assets/image/Header/rightArrowButton";
 import CupStraw from "../assets/image/Header/cupStraw";
@@ -9,6 +10,7 @@ import HeartEyes from "../assets/image/Header/heartEyes";
 import GitHub from "../assets/image/Header/gitHub";
 import CaretDownFill from "../assets/image/Header/caretDownFill";
 const HeaderBar = () => {
+  const navigate = useNavigate();
   const menu = (
     <Menu
       items={[
@@ -34,10 +36,10 @@ const HeaderBar = () => {
   return (
     <Header className="topbar">
       <div className="flex">
-        <button _ngcontent-vgb-c70="" title="Go back" className="mr-4 arrow-button">
+        <button _ngcontent-vgb-c70="" title="Go back" className="mr-4 arrow-button" onClick={() => navigate(-1)}>
           <LeftArrowButton />
         </button>
-        <button _ngcontent-vgb-c70="" title="Go forward" className="arrow-button">
+        <button _ngcontent-vgb-c70="" title="Go forward" className="arrow-button" onClick={() => navigate(1)}>
           <RightArrowButton />
         </button>
       </div>

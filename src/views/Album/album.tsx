@@ -1,8 +1,9 @@
-import React from "react";
-import PlayIcon from "../../components/assets/image/Album/playIcon";
-import Track from "../../components/assets/image/Album/track";
-import TrackPlay from "../../components/assets/image/Album/trackPlay";
-import "./album.css";
+import React from 'react';
+import PlayIcon from '../../components/assets/image/Album/playIcon';
+import Track from '../../components/assets/image/Album/track';
+import TrackPlay from '../../components/assets/image/Album/trackPlay';
+import Play from '../../components/assets/image/MyAlbum/play';
+import './album.css';
 
 const Album = () => {
   return (
@@ -13,9 +14,7 @@ const Album = () => {
           <h3 className="text-sm text-white uppercase">Album</h3>
           <h2 className="mediaTitle">Chúng Ta Của Hiện Tại</h2>
           <div className="flex">
-            <div className="text-sm font-bold text-white ng-star-inserted">
-              Sơn Tùng M-TP
-            </div>
+            <div className="text-sm font-bold text-white ng-star-inserted">Sơn Tùng M-TP</div>
             <div className="media-info "> - 2020</div>
             <div className="media-info "> - 1 song</div>
           </div>
@@ -39,40 +38,47 @@ const Album = () => {
           </div>
         </div>
         <div className="mb-8">
-          <div className="album-track">
-            <div className="table">
-              <div className="media-order">
-                <div className="flex group">
+          {/* insert api */}
+          <div className="group">
+            <div className="album-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
+              <div className="block">
+                <div className="flex">
                   <div className="flex group-hover:hidden track-order">
-                    <span className="text-description">1</span>
+                    <div className="text-description">1</div>
                   </div>
-                  <div className="hidden group-hover:block track-play-button pb-7">
-                    <div
-                      aria-roledescription="button"
-                      title="Play"
-                      className="flex "
-                    >
-                      <TrackPlay />
+                  <div className="hidden group-hover:block track-play-button ">
+                    <div className="flex" title="play" aria-roledescription="button">
+                      <div className="play-icon svg-icon-play icon">
+                        <PlayIcon />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="track-infos">
+
+              <div className="flex items-center">
                 <div className="flex flex-col">
-                  <div className="ellipsis-one-line text-base text-white">
-                    Chúng Ta Của Hiện Tại
-                  </div>
-                  <div className="">
+                  <div className="ellipsis-one-line text-base text-white"> POP/STARS </div>
+                  <div className="flex">
                     <a
-                      className=" link-subtle ellipsis-one-line hover:underline "
-                      href="/artist/5dfZ5uSmzR7VQK0udbAVpf"
+                      className="text-description link-subtle ellipsis-one-line hover:underline"
+                      href="#"
                     >
-                      Sơn Tùng M-TP
+                      K/DA
+                    </a>
+                    <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                    <a
+                      className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
+                      href="#"
+                    >
+                      {' '}
+                      Madison Beer{' '}
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="text-time"> 5:01 </div>
+
+              <div className="text-description"> 3:11 </div>
             </div>
           </div>
         </div>
