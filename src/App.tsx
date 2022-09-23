@@ -25,27 +25,24 @@ const getReturnedParamsFromSpotifyAuth = (hash: any) => {
 };
 
 function App() {
+  const token = localStorage.getItem('accessToken');
   useEffect(() => {
     if (window.location.hash) {
       const { access_token, expires_in, token_type } = getReturnedParamsFromSpotifyAuth(
         window.location.hash
       );
 
-      // localStorage.clear();
+      localStorage.clear();
 
       localStorage.setItem('accessToken', access_token);
       localStorage.setItem('tokenType', token_type);
       localStorage.setItem('expiresIn', expires_in);
     }
-  });
-
-  const token = localStorage.getItem('accessToken');
-  console.log(token);
+  }, []);
 
   if (!token) {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   }
-
   const handleLogin = () => {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
