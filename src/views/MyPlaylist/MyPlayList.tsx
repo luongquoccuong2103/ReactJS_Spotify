@@ -7,7 +7,7 @@ const MyPlayList = () => {
       <div className="block">
         <div className="common-grid">
           {/* call api */}
-          <div className="contented max-h-[240px]">
+          <div className="contented max-h-[260px]">
             <a className="flex flex-col flex-1" href="#">
               <div className="media-cover">
                 <div

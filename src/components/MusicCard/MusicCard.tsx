@@ -7,7 +7,7 @@ const MusicCard = (props: any) => {
   return (
     <React.Fragment>
      
-      <NavLink to="album" className="contented  max-h-[240px]">
+      <NavLink to="album" className="contented  max-h-[260px]">
     
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">

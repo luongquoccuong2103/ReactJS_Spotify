@@ -6,7 +6,7 @@ import Album from '../../views/Album/album';
 const ArtistCard = (props: any) => {
   return (
     <React.Fragment>
-      <NavLink to="artistDetail" className="contented  max-h-[240px]">
+      <NavLink to="artistDetail" className="contented  max-h-[280px]">
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">
             <div

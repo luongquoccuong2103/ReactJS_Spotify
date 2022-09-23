@@ -1,5 +1,5 @@
 .container {
-    min-width: 620px;
+    min-width: 100%;
     background-color: #181818;
     border-top: 1px solid #282828;
     display: grid;
