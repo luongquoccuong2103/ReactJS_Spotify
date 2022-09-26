@@ -1,0 +1,13 @@
+
+.text-heading {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.ellipsis-one-line {
+  -webkit-line-clamp: 1;
+  white-space: unset;
+  word-break: break-all;
+}

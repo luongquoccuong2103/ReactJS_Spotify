@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './TopList.css';
+import './TopList.scss';
 
 const TopList = () => {
   return (

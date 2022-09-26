@@ -1,7 +1,7 @@
 import { Routes, Route, NavLink , Link} from 'react-router-dom';
 import { Menu } from 'antd';
 import Logo from '../assets/image/Sider/logo';
-import './sider.css';
+import './sider.scss';
 import Home from '../../views/Home/HomeBody';
 import MyAlbum from '../../views/MyAlbum/MyAlbum';
 const SiderBar = () => {

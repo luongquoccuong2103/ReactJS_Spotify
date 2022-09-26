@@ -1,18 +1,48 @@
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
 import { Button, Menu, Dropdown } from 'antd';
 import Layout, { Content, Header } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
-import './HomeBody.css';
-import React from 'react';
+import './HomeBody.scss';
+import React, { useState, useEffect } from 'react';
 import MusicCard from '../../components/MusicCard/MusicCard';
 import Play from '../../components/assets/image/MyAlbum/play';
 import Album from '../Album/album';
+import axios from 'axios';
+import CallAPIHome from '../../components/callAPI/CallAPIHome';
+import CallAPI from '../../components/callAPI/CallAPI';
 
-const HomeBody = () => {
+const RECENTLYPLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/playlists';
+
+const HomeBody = (props: any) => {
+  const [token, setToken] = useState('');
+  const [data, setData]: any = useState();
+
+  useEffect(() => {
+    const call = async () => {
+      await axios
+        .get(RECENTLYPLAYED_ENDPOINT, {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        })
+        .then((response) => {
+          setData(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      if (localStorage.getItem('accessToken')) {
+        setToken(localStorage.getItem('accessToken')!);
+      }
+    };
+
+    call();
+  }, [token]);
   return (
     <React.Fragment>
       <div className="greeting">
-        <h2 className="text-3xl text-white">Good Morning</h2>
+        <h2 className="text-3xl text-white">Good Morningg</h2>
         <h3 className="mt-3 text-white text-opacity-90">
           Thanks for visiting ReactJS Spotify. It was built with TailwindCSS and Ant-Design by
           DuatTQ and CuongLQ. Cheers 🍺
@@ -21,6 +51,7 @@ const HomeBody = () => {
       <div className="recently-played-list">
         <div className="recently-played">
           <h2 className="mt-8 mb-4 text-heading">Recently Played</h2>
+          {/* <button >get recently played</button> */}
           <div className="content-grid">
             <MusicCard
               url="https://i.scdn.co/image/ab67616d0000b2735888c34015bebbf123957f6d"
@@ -28,6 +59,7 @@ const HomeBody = () => {
               description="kk"
               img={<Play />}
             />
+            <CallAPI endpoint = {RECENTLYPLAYED_ENDPOINT}/>
           </div>
         </div>
       </div>
@@ -42,7 +74,6 @@ const HomeBody = () => {
           />
         </div>
       </div>
-
     </React.Fragment>
   );
 };

@@ -23,7 +23,6 @@ const getReturnedParamsFromSpotifyAuth = (hash: any) => {
 
   return paramsSplitUp;
 };
-
 function App() {
   const token = localStorage.getItem('accessToken');
   useEffect(() => {

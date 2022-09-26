@@ -3,7 +3,7 @@ import Layout, { Content, Footer, Header } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import 'antd/dist/antd.min.css';
-import './MainLayout.css';
+import './MainLayout.scss';
 
 import HomeBody from './Home/HomeBody';
 import PlayingBar from '../components/PlayingBar/playingBar';

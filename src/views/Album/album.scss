@@ -1,0 +1,129 @@
+$lightGreyColor: #b3b3b3;
+$darkGreyColor: #2e2e2e;
+$whiteColor: #ffffff;
+
+.album {
+  display: block;
+}
+
+.mediaSummary {
+  min-height: 250px;
+  max-height: 450px;
+  grid-gap: 24px;
+  gap: 24px;
+  grid-template-columns: minmax(120px, 192px) 1fr;
+  align-items: flex-end;
+  display: grid;
+  padding-bottom: 1.5rem;
+}
+
+.mediaTitle {
+  color: $whiteColor;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.playlist-trach-header {
+  z-index: 2;
+  margin-bottom: 1rem;
+  --tw-border-opacity: 1;
+  border-bottom: 1px solid;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+  --tw-border-opacity: 0.1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+.album-tracks-grid {
+  display: grid;
+  grid-template-columns: 24px 6fr minmax(120px, 1fr);
+  grid-gap: 16px;
+  gap: 16px;
+  color: $lightGreyColor;
+}
+.button {
+  height: 70px;
+  .play-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.album-track-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.table {
+  height: 3.5rem;
+  cursor: pointer;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+}
+
+.table:hover {
+  background-color: $darkGreyColor;
+}
+
+.tracks-order {
+  display: flex;
+  color: $lightGreyColor;
+}
+
+.text-description {
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-text-opacity: 0.5;
+}
+
+.track-play-button {
+  width: 16px;
+  height: 16px;
+}
+
+.media-order {
+  display: block;
+}
+
+.flex {
+  display: flex;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+  color: $lightGreyColor;
+  .media-info {
+    padding-left: 5px;
+    color: $whiteColor;
+    display: flex;
+    align-items: center;
+  }
+}
+.playButton {
+  margin-right: 14px;
+}
+.group-album {
+  display: flex;
+}
+
+.text-time {
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-text-opacity: 0.5;
+}
+
+.track-infos {
+  width: 83%;
+}

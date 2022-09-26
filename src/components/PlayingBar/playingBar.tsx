@@ -1,4 +1,4 @@
-import "./playingBar.css";
+import "./playingBar.scss";
 import LeftControlButton from "../assets/image/PlayingBar/leftControlButton";
 import PlayButton from "../assets/image/PlayingBar/playButton";
 import RightControlButton from "../assets/image/PlayingBar/rightControllButton";

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import React from 'react';
-import './ArtistCard.css';
+import './ArtistCard.scss';
 import Album from '../../views/Album/album';
 
 const ArtistCard = (props: any) => {
@@ -13,7 +13,6 @@ const ArtistCard = (props: any) => {
               className="mb-4 media-cover-2 bg-white"
               style={{
                 borderRadius: '500px',
-
                 backgroundImage: `url(${props.url})`
               }}
             ></div>

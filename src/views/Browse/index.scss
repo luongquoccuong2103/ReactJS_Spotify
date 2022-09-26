@@ -21,7 +21,7 @@
     background-color: #333;
     background-position: 50%;
     background-size: cover;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+    box-shadow: 0 8px 24px RGB(0 0 0 / 50%);
 }
 
 .category-name {
@@ -33,12 +33,4 @@
     line-height: 1.5rem;
     --tw-text-opacity: 1;
     color: rgba(255,255,255,var(--tw-text-opacity));
-}
-
-.ellipsis-one-line, .text-description {
-    
-    -webkit-box-orient: vertical;
-    -webkit-user-select: none;
-    user-select: none;
-    overflow: hidden;
 }

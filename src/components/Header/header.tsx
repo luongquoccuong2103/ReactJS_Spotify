@@ -1,7 +1,7 @@
 import { Button, Menu, Dropdown } from "antd";
 import Layout, { Content, Header } from "antd/lib/layout/layout";
 import Sider from "antd/lib/layout/Sider";
-import "./header.css";
+import "./header.scss";
 import { useNavigate } from "react-router-dom";
 import LeftArrowButton from '../assets/image/Header/leftArrowButton'
 import RightArrowButton from "../assets/image/Header/rightArrowButton";

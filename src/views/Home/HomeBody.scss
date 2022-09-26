@@ -1,0 +1,19 @@
+.greeting {
+  display: block;
+}
+
+.text-heading {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.content-grid {
+  grid-gap: 24px;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  display: grid;
+}
+
+

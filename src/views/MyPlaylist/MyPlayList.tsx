@@ -1,5 +1,5 @@
 import Play from '../../components/assets/image/MyPlayList/play';
-import './MyPlayList.css';
+import './MyPlayList.scss';
 import { Routes, Route, Link } from 'react-router-dom';
 import MusicCard from '../../components/MusicCard/MusicCard';
 import axios from 'axios';

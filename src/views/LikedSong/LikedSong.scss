@@ -66,18 +66,12 @@
 }
 
 .link-subtle {
-    color: #b3b3b4;
+    color: #b3b3b3;
 }
 
 a:hover{
     color:white
 }
-
-/* .track-row:hover .track-play-button {
-    display: block;
-} */
-
-
 
 .play-icon {
     transition: all 33ms cubic-bezier(.3,0,.7,1);
@@ -96,15 +90,6 @@ a:hover{
     height: 1em;
     font-size: 1rem;
 }
-
-
-/* .group:hover .group-hover\:block {
-    display: block;
-} */
-/* .test {
-    display:block;
-    visibility: hidden;
-} */
 
 .group:hover .test{
     display: block;

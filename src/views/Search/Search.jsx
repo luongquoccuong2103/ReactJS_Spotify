@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SearchIcon from '../../components/assets/image/Search/searchIcon';
 import TimesIcon from '../../components/assets/image/Search/timesIcon';
 import Album from './Album/Album';
-
 import Artists from './Artist/Artists';
 import './Search.scss';
 import Songs from './Songs/Songs';
@@ -57,22 +56,22 @@ const Search = (props) => {
   const [searchValue, setSearchValue] = useState('');
   const [isInputFocus, setIsInputFocus] = useState(false);
   const [listSongs, setListSongs] = useState([]);
-  
-  const searchHandler = (event) => {
+
+  async function searchHandler(event) {
     setSearchValue(event.target.value);
     const listSearchGroup = [];
     if (event.target.value.length > 0) {
       setIsInputFocus(true);
     }
-    if (event.target.value !== '') {
-      dummySongs.map((item) => {
-        if (item.name.toLowerCase().includes(event.target.value.toLowerCase())) {
-          listSearchGroup.push(item);
-        }
-      });
-      setListSongs(listSearchGroup);
-    }
-  };
+    // if (event.target.value !== '') {
+    //   dummySongs.map((item) => {
+    //     if (item.name.toLowerCase().includes(event.target.value.toLowerCase())) {
+    //       listSearchGroup.push(item);
+    //     }
+    //   });
+    //   setListSongs(listSearchGroup);
+    // }
+  }
 
   const setEmptyInput = () => {
     setSearchValue('');
