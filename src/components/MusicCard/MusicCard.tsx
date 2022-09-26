@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './MusicCard.scss';
-import Album from '../../views/Album/album';
 
 const MusicCard = (props: any) => {
   return (

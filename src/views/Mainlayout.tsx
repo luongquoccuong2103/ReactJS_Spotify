@@ -1,23 +1,22 @@
-import { Button, Menu, Dropdown } from 'antd';
-import Layout, { Content, Footer, Header } from 'antd/lib/layout/layout';
+import Layout, { Content } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 // import 'antd/dist/antd.min.css';
 import './MainLayout.scss';
 
-import HomeBody from './Home/HomeBody';
+import React from 'react';
+import HeaderBar from '../components/Header/header';
 import PlayingBar from '../components/PlayingBar/playingBar';
+import SiderBar from '../components/Sider/sider';
 import Album from './Album/album';
-import MyPlayList from './MyPlaylist/MyPlayList';
-import MyAlbum from './MyAlbum/MyAlbum';
-import LikedSong from './LikedSong/LikedSong';
+import ArtistDetail from './ArtistDetail/ArtistDetail';
 import BodyBrowse from './Browse';
 import TopList from './Browse/TopLists/TopList';
-import HeaderBar from '../components/Header/header';
-import React from 'react';
-import SiderBar from '../components/Sider/sider';
+import HomeBody from './Home/HomeBody';
+import LikedSong from './LikedSong/LikedSong';
+import MyAlbum from './MyAlbum/MyAlbum';
+import MyPlayList from './MyPlaylist/MyPlayList';
 import Search from './Search/Search';
-import ArtistDetail from './ArtistDetail/ArtistDetail';
 
 function getItem(label: string, key: any) {
   return {

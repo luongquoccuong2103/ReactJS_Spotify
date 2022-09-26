@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PlayIcon from '../../components/assets/image/Album/playIcon';
-import './ArtistDetail.scss'
+import './ArtistDetail.scss';
 const ArtistDetail = () => {
     const dummySongs = [
         {

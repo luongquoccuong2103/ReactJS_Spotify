@@ -1,8 +1,6 @@
 import React from 'react';
 import PlayIcon from '../../components/assets/image/Album/playIcon';
 import Track from '../../components/assets/image/Album/track';
-import TrackPlay from '../../components/assets/image/Album/trackPlay';
-import Play from '../../components/assets/image/MyAlbum/play';
 import './album.scss';
 
 const Album = () => {

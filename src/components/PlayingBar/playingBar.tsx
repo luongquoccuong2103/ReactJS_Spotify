@@ -1,8 +1,8 @@
-import "./playingBar.scss";
 import LeftControlButton from "../assets/image/PlayingBar/leftControlButton";
 import PlayButton from "../assets/image/PlayingBar/playButton";
-import RightControlButton from "../assets/image/PlayingBar/rightControllButton";
 import PlayerVolume from "../assets/image/PlayingBar/playerVolume";
+import RightControlButton from "../assets/image/PlayingBar/rightControllButton";
+import "./playingBar.scss";
 const PlayingBar = () => {
   return (
     <div className="container">

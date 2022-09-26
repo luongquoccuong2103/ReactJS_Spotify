@@ -1,10 +1,5 @@
-import Play from '../../components/assets/image/MyPlayList/play';
-import './MyPlayList.scss';
-import { Routes, Route, Link } from 'react-router-dom';
-import MusicCard from '../../components/MusicCard/MusicCard';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import CallAPI from '../../components/callAPI/CallAPI';
+import './MyPlayList.scss';
 
 const PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/me/playlists';
 

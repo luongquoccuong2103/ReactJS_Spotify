@@ -1,14 +1,13 @@
-import { Button, Menu, Dropdown } from "antd";
-import Layout, { Content, Header } from "antd/lib/layout/layout";
-import Sider from "antd/lib/layout/Sider";
-import "./header.scss";
+import { Button, Menu } from "antd";
+import { Header } from "antd/lib/layout/layout";
 import { useNavigate } from "react-router-dom";
-import LeftArrowButton from '../assets/image/Header/leftArrowButton'
-import RightArrowButton from "../assets/image/Header/rightArrowButton";
-import CupStraw from "../assets/image/Header/cupStraw";
-import HeartEyes from "../assets/image/Header/heartEyes";
-import GitHub from "../assets/image/Header/gitHub";
 import CaretDownFill from "../assets/image/Header/caretDownFill";
+import CupStraw from "../assets/image/Header/cupStraw";
+import GitHub from "../assets/image/Header/gitHub";
+import HeartEyes from "../assets/image/Header/heartEyes";
+import LeftArrowButton from '../assets/image/Header/leftArrowButton';
+import RightArrowButton from "../assets/image/Header/rightArrowButton";
+import "./header.scss";
 const HeaderBar = () => {
   const navigate = useNavigate();
   const menu = (

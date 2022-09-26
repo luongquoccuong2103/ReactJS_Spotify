@@ -1,15 +1,9 @@
-import { Route, Routes } from 'react-router-dom';
-import { Button, Menu, Dropdown } from 'antd';
-import Layout, { Content, Header } from 'antd/lib/layout/layout';
-import Sider from 'antd/lib/layout/Sider';
-import './HomeBody.scss';
-import React, { useState, useEffect } from 'react';
-import MusicCard from '../../components/MusicCard/MusicCard';
-import Play from '../../components/assets/image/MyAlbum/play';
-import Album from '../Album/album';
 import axios from 'axios';
-import CallAPIHome from '../../components/callAPI/CallAPIHome';
+import React, { useEffect, useState } from 'react';
+import Play from '../../components/assets/image/MyAlbum/play';
 import CallAPI from '../../components/callAPI/CallAPI';
+import MusicCard from '../../components/MusicCard/MusicCard';
+import './HomeBody.scss';
 
 const RECENTLYPLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/playlists';
 
