@@ -10,7 +10,7 @@ const MusicCard = (props: any) => {
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">
             <div
-              className="mb-4 media-cover-2 bg-white"
+              className="mb-4 media-cover-2 bg-black"
               style={{
                 borderRadius: 'initial',
                 // backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`
