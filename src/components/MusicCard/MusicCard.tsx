@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Play from '../assets/image/MyAlbum/play';
 import './MusicCard.scss';
 
 const MusicCard = (props: any) => {
   return (
     <React.Fragment>
-     
       <NavLink to="album" className="contented  max-h-[260px]">
-    
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">
             <div
@@ -21,8 +20,8 @@ const MusicCard = (props: any) => {
             <div className="play-button-overlay">
               <div className="flex play-icon control-button large text-white bg-primary">
                 <div className="play-icon svgicon text-[1.5rem]">
-                  {/* <Play /> */}
-                  {props.img}
+                  <Play />
+                  {/* {props.img} */}
                 </div>
               </div>
             </div>
@@ -41,7 +40,6 @@ const MusicCard = (props: any) => {
         </a>
       </NavLink>
     </React.Fragment>
-    
   );
 };
 
