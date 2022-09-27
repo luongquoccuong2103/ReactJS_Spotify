@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Play from '../assets/image/MyAlbum/play';
 import './MusicCard.scss';
 
 const MusicCard = (props: any) => {
@@ -21,7 +22,7 @@ const MusicCard = (props: any) => {
             <div className="play-button-overlay">
               <div className="flex play-icon control-button large text-white bg-primary">
                 <div className="play-icon svgicon text-[1.5rem]">
-                  {/* <Play /> */}
+                  <Play />
                   {props.img}
                 </div>
               </div>

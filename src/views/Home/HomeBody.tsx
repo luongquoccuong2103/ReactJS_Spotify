@@ -5,34 +5,34 @@ import CallAPI from '../../components/callAPI/CallAPI';
 import MusicCard from '../../components/MusicCard/MusicCard';
 import './HomeBody.scss';
 
-const RECENTLYPLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/playlists';
+const RECENTLYPLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played';
 
 const HomeBody = (props: any) => {
-  const [token, setToken] = useState('');
-  const [data, setData]: any = useState();
+  // const [token, setToken] = useState('');
+  // const [data, setData]: any = useState();
 
-  useEffect(() => {
-    const call = async () => {
-      await axios
-        .get(RECENTLYPLAYED_ENDPOINT, {
-          headers: {
-            Authorization: 'Bearer ' + token
-          }
-        })
-        .then((response) => {
-          setData(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+  // useEffect(() => {
+  //   const call = async () => {
+  //     await axios
+  //       .get(RECENTLYPLAYED_ENDPOINT, {
+  //         headers: {
+  //           Authorization: 'Bearer ' + token
+  //         }
+  //       })
+  //       .then((response) => {
+  //         setData(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
 
-      if (localStorage.getItem('accessToken')) {
-        setToken(localStorage.getItem('accessToken')!);
-      }
-    };
+  //     if (localStorage.getItem('accessToken')) {
+  //       setToken(localStorage.getItem('accessToken')!);
+  //     }
+  //   };
 
-    call();
-  }, [token]);
+  //   call();
+  // }, [token]);
   return (
     <React.Fragment>
       <div className="greeting">
@@ -47,13 +47,13 @@ const HomeBody = (props: any) => {
           <h2 className="mt-8 mb-4 text-heading">Recently Played</h2>
           {/* <button >get recently played</button> */}
           <div className="content-grid">
-            <MusicCard
+            {/* <MusicCard
               url="https://i.scdn.co/image/ab67616d0000b2735888c34015bebbf123957f6d"
               mediades="ok"
               description="kk"
               img={<Play />}
-            />
-            <CallAPI endpoint = {RECENTLYPLAYED_ENDPOINT}/>
+            /> */}
+            {/* <CallAPI endpoint = {RECENTLYPLAYED_ENDPOINT}/> */}
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ const HomeBody = (props: any) => {
             url="https://i.scdn.co/image/ab67706f00000003cc785c1541d8b540da816688"
             mediades="ok"
             description="kk"
-            img={<Play />}
+            
           />
         </div>
       </div>

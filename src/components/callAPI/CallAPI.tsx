@@ -18,7 +18,7 @@ const CallAPI = (props: any) => {
           setData(response.data);
         })
         .catch((error) => {
-          console.log(error);
+          console.log(error.message);
         });
 
       if (localStorage.getItem('accessToken')) {
