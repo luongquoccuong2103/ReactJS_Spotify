@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import MusicCard from '../MusicCard/MusicCard';
 
 const CallAPI = (props: any) => {
-  const [token, setToken] = useState('');
+  // const [token, setToken] = useState(localStorage.getItem('accessToken'));
+  const token = localStorage.getItem('accessToken');
   const [data, setData]: any = useState();
 
   useEffect(() => {
@@ -21,9 +22,9 @@ const CallAPI = (props: any) => {
           console.log(error.message);
         });
 
-      if (localStorage.getItem('accessToken')) {
-        setToken(localStorage.getItem('accessToken')!);
-      }
+      // if (localStorage.getItem('accessToken')) {
+      //   setToken(localStorage.getItem('accessToken')!);
+      // }
     };
 
     call();
