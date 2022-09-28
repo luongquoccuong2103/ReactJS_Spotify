@@ -20,7 +20,7 @@ const MyAlbum = () => {
         })
         .then((response) => {
           setData(response.data);
-          console.log(response);
+          // console.log(response);
         })
         .catch((error) => {
           console.log(error);

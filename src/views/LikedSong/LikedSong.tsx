@@ -68,7 +68,15 @@ const LikedSong = () => {
           <h2 className="media-title ellipsis-one-line m-0">Liked Songs</h2>
           <div className="mt-3 mb-2 text-description"></div>
           <div className="flex">
-            <div className="media-info">1 song</div>
+            <div className="media-info">
+              {data?.items
+                ? `${
+                    data.items.length == 1
+                      ? `${data.items.length} song`
+                      : `${data.items.length} songs`
+                  }`
+                : null}
+            </div>
           </div>
         </div>
       </div>
