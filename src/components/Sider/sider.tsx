@@ -48,19 +48,19 @@ const SiderBar = () => {
           mode="inline"
         >
           {/* sau dung nav link de css chu */}
-          <Menu.Item>
+          <Menu.Item key='1'>
             <NavLink to="/ReactJS_Spotify">Home</NavLink>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item key='2'>
             <NavLink to="search">Search</NavLink>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item key='3'>
             <NavLink to="browse">Browse</NavLink>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item key='4'>
             <NavLink to="myPlayList">My Playlists</NavLink>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item key='5'>
             <NavLink to="myAlbum">My Albums</NavLink>
           </Menu.Item>
 
@@ -71,7 +71,7 @@ const SiderBar = () => {
             </h1>
             <ul className="h-[40px]">
               <li className="px-2">
-                <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
+                <Menu.Item key='5' style={{ height: '40px', backgroundColor: 'black' }}>
                   <NavLink
                     to="likedSong"
                     className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
@@ -92,15 +92,15 @@ const SiderBar = () => {
               </li> */}
 
               {data?.items
-                ? data.items.map((item: any) => (
-                    <li className="px-2">
-                      <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
-                        <a
+                ? data.items.map((item: any, index: any) => (
+                    <li className="px-2" key={index}>
+                      <Menu.Item key='6' style={{ height: '40px', backgroundColor: 'black' }} >
+                        <NavLink
                           className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
-                          href="#"
+                          to=""
                         >
                           {item.name}
-                        </a>
+                        </NavLink>
                       </Menu.Item>
                     </li>
                   ))

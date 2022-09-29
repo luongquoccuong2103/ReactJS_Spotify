@@ -59,8 +59,8 @@ const MainLayout = () => {
           <Content className="main-view content-spacing">
             <Routes>
               <Route path="/ReactJS_Spotify" element={<HomeBody />} />
-              <Route path="/ReactJS_Spotify/album" element={<Album />} />
-              <Route path="/ReactJS_Spotify/album/artistDetail" element={<ArtistDetail />} />
+              <Route path="/album/:albumId" element={<Album />} />
+              <Route path="/artist/:artistId" element={<ArtistDetail />} />
               <Route path="/myAlbum" element={<MyAlbum />} />
               <Route path="/browse" element={<BodyBrowse />} />
               <Route path="/browse/:browseid" element={<BrowseDetail />} />

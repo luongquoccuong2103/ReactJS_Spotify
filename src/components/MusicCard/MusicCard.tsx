@@ -7,9 +7,9 @@ const MusicCard = (props: any) => {
   
   return (
     <React.Fragment>
-      <NavLink to={props.to} className="contented  max-h-[260px]" state={{albumID: props.albumId}}>
+      <NavLink to={props.to} className="contented  max-h-[260px]" state={{Id: props.Id}}>
       {/* <NavLink to={props.to} className="contented  max-h-[260px]"> */}
-        <a className="flex flex-col flex-1" href="#">
+        <div className="flex flex-col flex-1" >
           <div className="media-cover">
             <div
               className="mb-4 media-cover-2 bg-black"
@@ -40,7 +40,7 @@ const MusicCard = (props: any) => {
               {props.description}
             </div>
           </div>
-        </a>
+        </div>
       </NavLink>
     </React.Fragment>
   );

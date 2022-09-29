@@ -6,7 +6,7 @@ const ArtistCard = (props: any) => {
   return (
     <React.Fragment>
       <NavLink to="artistDetail" className="contented  max-h-[280px]">
-        <a className="flex flex-col flex-1" href="#">
+        <div className="flex flex-col flex-1" >
           <div className="media-cover">
             <div
               className="mb-4 media-cover-2 bg-white"
@@ -28,7 +28,7 @@ const ArtistCard = (props: any) => {
             </div>
             <div className="text-description">{props.description}</div>
           </div>
-        </a>
+        </div>
       </NavLink>
     </React.Fragment>
   );

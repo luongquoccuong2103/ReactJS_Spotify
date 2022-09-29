@@ -5,19 +5,14 @@ import PlayIcon from '../../components/assets/image/Album/playIcon';
 import './ArtistDetail.scss';
 const ArtistDetail = () => {
   const location = useLocation();
-  const [artistID, setArtistID] = useState({ artistId: '' });
   const [artistData, setArtistData]: any = useState();
   const [artistTopTracks, setArtistTopTracks] : any = useState();
   const [token, setToken] = useState('');
-  const url = 'https://api.spotify.com/v1/artists/' + artistID;
-  const urlGetTopTracks = 'https://api.spotify.com/v1/artists/' + artistID +  '/top-tracks?country=ES'
+  const url = 'https://api.spotify.com/v1/artists/' + location.state.artistId;
+  const urlGetTopTracks = 'https://api.spotify.com/v1/artists/' + location.state.artistId +  '/top-tracks?country=ES'
   let order = 1;
   useEffect(() => {
-    if (location.state) {
-      let _state = location.state as any;
-      setArtistID(_state.artistId);
-      console.log(_state.artistId)
-    }
+
 
     const getArtist = async () => {
       await axios
@@ -70,8 +65,8 @@ const ArtistDetail = () => {
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
   }
   
-  const listSong = artistTopTracks?.tracks.map((track : any) => (
-    <div className="group">
+  const listSong = artistTopTracks?.tracks.map((track : any, index: any) => (
+    <div className="group" key={index}>
       <div className="artist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
         <div className="block">
           <div className="flex">
@@ -103,7 +98,7 @@ const ArtistDetail = () => {
         </div>
         <div>
           {' '}
-          <NavLink to="album" className="text-description link-subtle hover:underline">
+          <NavLink to={`../../../album/${track.album.id}`} state={{Id: track.album.id}} className="text-description link-subtle hover:underline">
           {track.album.name}
           </NavLink>
         </div>

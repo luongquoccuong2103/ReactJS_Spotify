@@ -9,16 +9,12 @@ import Play from '../../components/assets/image/MyAlbum/play';
 const Album = (props: any) => {
   const location = useLocation();
 
-  const [albumID, setAlbumID] = useState({ albumID: '' });
+  const [albumID, setAlbumID] = useState({ Id: '' });
   const [albumData, setAlbumData]: any = useState();
   const [token, setToken] = useState('');
-  const url = 'https://api.spotify.com/v1/albums/' + albumID;
+  const url = 'https://api.spotify.com/v1/albums/' + location.state.Id;
   useEffect(() => {
-    if (location.state) {
-      let _state = location.state as any;
-      setAlbumID(_state.albumID);
-    }
-
+   
     const call = async () => {
       await axios
         .get(url, {
@@ -85,8 +81,8 @@ const Album = (props: any) => {
           {/* insert api */}
 
          
-            {albumData?.tracks.items.map((track: any) => (
-               <div className="group">
+            {albumData?.tracks.items.map((track: any, index: any) => (
+               <div className="group" key={index}>
               <div className="album-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                 <div className="block">
                   <div className="flex">
@@ -109,14 +105,14 @@ const Album = (props: any) => {
                     <div className="flex">
                       <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline"
-                        to="artistDetail" state={{artistId: track.artists[0].id}}
+                        to={`../../artist/${track.artists[0].id}`} state={{artistId: track.artists[0].id}}
                       >
                         {track.artists[0].name}
                       </NavLink>
-                      {track.artists.length - 1 > 0 && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
+                      {index != track.artists.length - 1 > 0 && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
                       <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                        to="artistDetail" state={{artistId: track.artists[1]?.id}}
+                        to={`../../artist/${track.artists[index]?.id}`} state={{artistId: track.artists[index]?.id}}
                       >
                       {track.artists[1]?.name}
                       </NavLink>

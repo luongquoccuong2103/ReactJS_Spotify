@@ -39,7 +39,7 @@ const BodyBrowse = () => {
           {data?.items
             ? data.items.map((item: any) => (
                 <div>
-                  <a className="flex relative ul" id="hv">
+                  <div className="flex relative ul" id="hv">
                     <div
                       className="image"
                       style={{
@@ -49,7 +49,7 @@ const BodyBrowse = () => {
                     <NavLink to={item.id} className="category-name ellipsis-one-line txunderline">
                       {item.name}
                     </NavLink>
-                  </a>
+                  </div>
                 </div>
               ))
             : null}
