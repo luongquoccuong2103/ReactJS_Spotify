@@ -1,4 +1,4 @@
-import CallAPI from '../../components/callAPI/CallAPI';
+import CallAPI from '../../components/callAPI/CallAPIPlaylist';
 import './MyPlayList.scss';
 
 const PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/me/playlists';

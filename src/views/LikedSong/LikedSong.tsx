@@ -1,7 +1,59 @@
-import Play from "../../components/assets/image/LikedSong/play";
-import "./LikedSong.scss";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Play from '../../components/assets/image/LikedSong/play';
+import './LikedSong.scss';
 
 const LikedSong = () => {
+  const token = localStorage.getItem('accessToken');
+  const [data, setData]: any = useState();
+  // const [artist, setArtist]: any = useState();
+
+  useEffect(() => {
+    const call = async () => {
+      await axios
+        .get('https://api.spotify.com/v1/me/tracks', {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        })
+        .then((response) => {
+          setData(response.data);
+
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // if (localStorage.getItem('accessToken')) {
+      //   setToken(localStorage.getItem('accessToken')!);
+      // }
+    };
+
+    call();
+  }, [token]);
+
+  const Datefix = (props: any) => {
+    let date = new Date(props.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit'
+    });
+    return <p>{date}</p>;
+  };
+
+  const Artistlist = (props: any) => {
+    return (
+      <>
+        <a className="text-description link-subtle ellipsis-one-line hover:underline" href="#">
+          {' '}
+          {props.artist}{' '}
+        </a>
+        <span className="mr-1 comma-separator ng-star-inserted">,</span>
+      </>
+    );
+  };
+
   return (
     <>
       <div className="imbg">
@@ -16,7 +68,15 @@ const LikedSong = () => {
           <h2 className="media-title ellipsis-one-line m-0">Liked Songs</h2>
           <div className="mt-3 mb-2 text-description"></div>
           <div className="flex">
-            <div className="media-info">1 song</div>
+            <div className="media-info">
+              {data?.items
+                ? `${
+                    data.items.length == 1
+                      ? `${data.items.length} song`
+                      : `${data.items.length} songs`
+                  }`
+                : null}
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +117,7 @@ const LikedSong = () => {
 
       <div className="mb-8">
         {/* insert api */}
-        <div className="btn-hover group">
+        {/* <div className="btn-hover group">
           <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
             <div className="block">
               <div className="flex">
@@ -114,7 +174,92 @@ const LikedSong = () => {
 
             <div className="text-description"> 3:11 </div>
           </div>
-        </div>
+        </div> */}
+
+        {data?.items
+          ? data.items.map((item: any) => (
+              <>
+                <div className="btn-hover group">
+                  <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
+                    <div className="block">
+                      <div className="flex">
+                        <div className="flex group-hover:hidden track-order">
+                          <div className="text-description">1</div>
+                        </div>
+                        <div className="hidden pt-1 group-hover:block track-play-button">
+                          <div className="flex">
+                            <div className="play-icon svg-icon-play icon">
+                              <Play />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center">
+                      <div className="track-cover">
+                        <div
+                          className="media-cover-2"
+                          style={{
+                            backgroundImage: `url(${item.track.album.images[0].url})`
+                          }}
+                        ></div>
+                      </div>
+                      <div className="flex flex-col">
+                        <div className="ellipsis-one-line text-base text-white">
+                          {' '}
+                          {item.track.name}{' '}
+                        </div>
+                        <div className="flex">
+                          {/* <a
+                            className="text-description link-subtle ellipsis-one-line hover:underline"
+                            href="#"
+                          >
+                            {' '}
+                            K/DA{' '}
+                          </a>
+                          <span className="mr-1 comma-separator ng-star-inserted">,</span> */}
+
+                          {item.track.artists.map((artist: any) => (
+                            <>
+                              <a
+                                className="text-description link-subtle ellipsis-one-line hover:underline"
+                                href="#"
+                              >
+                                {' '}
+                                {artist.name}{' '}
+                              </a>
+                              <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                            </>
+                          ))}
+
+                          {/* <a
+                            className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
+                            href="#"
+                          >
+                            {' '}
+                            Madison Beer{' '}
+                          </a> */}
+                        </div>
+                      </div>
+                    </div>
+
+                    <a className="text-description link-subtle hover:underline" href="#">
+                      {' '}
+                      {item.track.album.name}{' '}
+                    </a>
+
+                    <div className="text-description">
+                      {/* {item.added_at} */}
+                      <Datefix date={item.added_at} />
+                    </div>
+
+                    <div className="text-description"> 3:11 </div>
+                  </div>
+                </div>
+              </>
+            ))
+          : null}
       </div>
     </>
   );

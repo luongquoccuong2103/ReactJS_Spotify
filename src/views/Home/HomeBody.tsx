@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Play from '../../components/assets/image/MyAlbum/play';
-import CallAPI from '../../components/callAPI/CallAPI';
+import CallAPI from '../../components/callAPI/CallAPIPlaylist';
 import MusicCard from '../../components/MusicCard/MusicCard';
 import './HomeBody.scss';
 

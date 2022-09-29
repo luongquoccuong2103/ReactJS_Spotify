@@ -17,6 +17,7 @@ const CallAPI = (props: any) => {
         })
         .then((response) => {
           setData(response.data);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error.message);
@@ -33,16 +34,25 @@ const CallAPI = (props: any) => {
   return (
     <>
       {data?.items
-        ? data.items.map((item: any) => (
-            <>
-              <MusicCard
-                key={item.id}
-                mediades={item.name}
-                description={item.description}
-                url={item.images[0].url}
-              />
-            </>
-          ))
+        ? data.items.map((item: any) => {
+            let url = '';
+            if (item.images.length != 0) {
+              url = item.images[0].url;
+            } else {
+              url = '';
+            }
+            return (
+              <>
+                <MusicCard
+                  key={item.id}
+                  mediades={item.name}
+                  description={item.description}
+                  url={url}
+                  to={item.id}
+                />
+              </>
+            );
+          })
         : null}
     </>
   );

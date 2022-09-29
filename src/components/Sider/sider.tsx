@@ -1,8 +1,36 @@
 import { Menu } from 'antd';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../assets/image/Sider/logo';
 import './sider.scss';
 const SiderBar = () => {
+  const token = localStorage.getItem('accessToken');
+  const [data, setData]: any = useState();
+
+  useEffect(() => {
+    const call = async () => {
+      await axios
+        .get('https://api.spotify.com/v1/me/playlists', {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        })
+        .then((response) => {
+          setData(response.data);
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // if (localStorage.getItem('accessToken')) {
+      //   setToken(localStorage.getItem('accessToken')!);
+      // }
+    };
+
+    call();
+  }, [token]);
   return (
     <>
       <div className="h-[100vh]">
@@ -54,14 +82,29 @@ const SiderBar = () => {
               </li>
             </ul>
             <div className="mx-6 separator"></div>
-            <ul className="playlists ng-star-inserted">
-              <li className="px-2">
+            <ul className="playlists">
+              {/* <li className="px-2">
                 <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
                   <a className="flex items-center px-4 rounded-[4px] bg-[black] w-full" href="#">
                     Danh sách phát của tôi #1
                   </a>
                 </Menu.Item>
-              </li>
+              </li> */}
+
+              {data?.items
+                ? data.items.map((item: any) => (
+                    <li className="px-2">
+                      <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
+                        <a
+                          className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
+                          href="#"
+                        >
+                          {item.name}
+                        </a>
+                      </Menu.Item>
+                    </li>
+                  ))
+                : null}
             </ul>
           </div>
         </Menu>

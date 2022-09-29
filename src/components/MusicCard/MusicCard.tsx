@@ -7,13 +7,15 @@ const MusicCard = (props: any) => {
   
   return (
     <React.Fragment>
-      <NavLink to="album" className="contented  max-h-[260px]" state={{albumID: props.albumId}}>
+      <NavLink to={props.to} className="contented  max-h-[260px]" state={{albumID: props.albumId}}>
+      {/* <NavLink to={props.to} className="contented  max-h-[260px]"> */}
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">
             <div
-              className="mb-4 media-cover-2 bg-white"
+              className="mb-4 media-cover-2 bg-black"
               style={{
                 borderRadius: 'initial',
+                backgroundColor: '#333333',
                 // backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`
                 backgroundImage: `url(${props.url})`
               }}
@@ -27,7 +29,7 @@ const MusicCard = (props: any) => {
               </div>
             </div>
           </div>
-          <div _ngcontent-yvy-c84="" className="media-description">
+          <div className="media-description">
             <div className="font-bold text-white ellipsis-one-line hover:text-white">
               {' '}
               {/* POP/STARS */}

@@ -10,7 +10,7 @@ import PlayingBar from '../components/PlayingBar/playingBar';
 import SiderBar from '../components/Sider/sider';
 import Album from './Album/album';
 import ArtistDetail from './ArtistDetail/ArtistDetail';
-import BodyBrowse from './Browse';
+import BodyBrowse from './Browse/Browse';
 import TopList from './Browse/TopLists/TopList';
 import HomeBody from './Home/HomeBody';
 import LikedSong from './LikedSong/LikedSong';
@@ -76,7 +76,6 @@ const MainLayout = () => {
 
             <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
           </Content>
-        
         </Layout>
       </Layout>
       <PlayingBar />
