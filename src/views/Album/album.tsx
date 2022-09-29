@@ -28,6 +28,7 @@ const Album = (props: any) => {
         })
         .then((response) => {
           setAlbumData(response.data);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -44,10 +45,9 @@ const Album = (props: any) => {
   function millisToMinutesAndSeconds(millis: any) {
     var minutes: any = Math.floor(millis / 60000);
     var seconds: any = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   }
 
-  
   return (
     <React.Fragment>
       <div className="mediaSummary">
@@ -84,9 +84,8 @@ const Album = (props: any) => {
         <div className="mb-8">
           {/* insert api */}
 
-         
-            {albumData?.tracks.items.map((track: any) => (
-               <div className="group">
+          {albumData?.tracks.items.map((track: any) => (
+            <div className="group">
               <div className="album-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                 <div className="block">
                   <div className="flex">
@@ -109,27 +108,33 @@ const Album = (props: any) => {
                     <div className="flex">
                       <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline"
-                        to="artistDetail" state={{artistId: track.artists[0].id}}
+                        to="artistDetail"
+                        state={{ artistId: track.artists[0].id }}
                       >
                         {track.artists[0].name}
                       </NavLink>
-                      {track.artists.length - 1 > 0 && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
+                      {track.artists.length - 1 > 0 && (
+                        <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                      )}
                       <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                        to="artistDetail" state={{artistId: track.artists[1]?.id}}
+                        to="artistDetail"
+                        state={{ artistId: track.artists[1]?.id }}
                       >
-                      {track.artists[1]?.name}
+                        {track.artists[1]?.name}
                       </NavLink>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-description"> {millisToMinutesAndSeconds(track.duration_ms)} </div>
+                <div className="text-description">
+                  {' '}
+                  {millisToMinutesAndSeconds(track.duration_ms)}{' '}
+                </div>
               </div>
-              </div>
-            ))}
-          </div>
-        
+            </div>
+          ))}
+        </div>
       </div>
     </React.Fragment>
   );
