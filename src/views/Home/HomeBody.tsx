@@ -69,7 +69,7 @@ const HomeBody = (props: any) => {
             {data?.items.map((item: any, index: any) => (
               <MusicCard
                 to={`../album/${item?.track.album.id}`}
-                Id={item.track.album.id}
+                id={item.track.album.id}
                 mediades={item.track.name}
                 description={item.track.album.artists[0].name}
                 url={item.track.album.images[0].url}
@@ -89,7 +89,7 @@ const HomeBody = (props: any) => {
               mediades={item.name}
               description={item.description}
               url={item.images[0].url}
-              Id={item.id}
+              id={item.id}
             />
           ))}
         </div>
