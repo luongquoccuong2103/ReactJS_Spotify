@@ -11,12 +11,12 @@ import SiderBar from '../components/Sider/sider';
 import Album from './Album/album';
 import ArtistDetail from './ArtistDetail/ArtistDetail';
 import BodyBrowse from './Browse/Browse';
-import TopList from './Browse/TopLists/TopList';
 import HomeBody from './Home/HomeBody';
 import LikedSong from './LikedSong/LikedSong';
 import MyAlbum from './MyAlbum/MyAlbum';
 import MyPlayList from './MyPlaylist/MyPlayList';
 import Search from './Search/Search';
+import BrowseDetail from './Browse/BrowseDetail/BrowseDetail';
 
 function getItem(label: string, key: any) {
   return {
@@ -63,7 +63,7 @@ const MainLayout = () => {
               <Route path="/ReactJS_Spotify/album/artistDetail" element={<ArtistDetail />} />
               <Route path="/myAlbum" element={<MyAlbum />} />
               <Route path="/browse" element={<BodyBrowse />} />
-              <Route path="/browse/topList" element={<TopList />} />
+              <Route path="/browse/:browseid" element={<BrowseDetail />} />
               <Route path="/browse/topList/myPlayList" element={<MyPlayList />} />
               <Route path="/myPlayList" element={<MyPlayList />} />
               <Route path="/likedSong" element={<LikedSong />} />
