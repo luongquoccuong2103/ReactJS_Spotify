@@ -113,10 +113,10 @@ const Album = (props: any) => {
                       >
                         {track.artists[0].name}
                       </NavLink>
-                      {track.artists[1]?.name && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
+                      {track.artists.length - 1 > 0 && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
                       <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                        to="artistDetail" state={{artistId: track.artists[1].id}}
+                        to="artistDetail" state={{artistId: track.artists[1]?.id}}
                       >
                       {track.artists[1]?.name}
                       </NavLink>

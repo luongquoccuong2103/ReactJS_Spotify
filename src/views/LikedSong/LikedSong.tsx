@@ -229,7 +229,7 @@ const LikedSong = () => {
                                 {' '}
                                 {artist.name}{' '}
                               </a>
-                              <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                              {item.track.artists[item.track.artists.length - 1] ? <span className="mr-1 comma-separator ng-star-inserted">,</span> : <span></span>}
                             </>
                           ))}
 

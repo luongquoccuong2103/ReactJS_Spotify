@@ -116,7 +116,7 @@ const ArtistDetail = () => {
       <div className="mediaSummary">
         <img
           className="artist-image"
-          src={artistData?.images[0].url}
+          src={artistData?.images[0]?.url}
         />
         <div className="flex flex-col content">
           <h3 className="text-sm text-white uppercase">Artist</h3>
