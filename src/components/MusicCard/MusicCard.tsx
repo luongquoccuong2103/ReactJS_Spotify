@@ -4,9 +4,11 @@ import Play from '../assets/image/MyAlbum/play';
 import './MusicCard.scss';
 
 const MusicCard = (props: any) => {
+  
   return (
     <React.Fragment>
-      <NavLink to={props.to} className="contented  max-h-[260px]">
+      <NavLink to={props.to} className="contented  max-h-[260px]" state={{albumID: props.albumId}}>
+      {/* <NavLink to={props.to} className="contented  max-h-[260px]"> */}
         <a className="flex flex-col flex-1" href="#">
           <div className="media-cover">
             <div

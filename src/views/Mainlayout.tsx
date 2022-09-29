@@ -60,7 +60,7 @@ const MainLayout = () => {
             <Routes>
               <Route path="/ReactJS_Spotify" element={<HomeBody />} />
               <Route path="/ReactJS_Spotify/album" element={<Album />} />
-
+              <Route path="/ReactJS_Spotify/album/artistDetail" element={<ArtistDetail />} />
               <Route path="/myAlbum" element={<MyAlbum />} />
               <Route path="/browse" element={<BodyBrowse />} />
               <Route path="/browse/:browseid" element={<BrowseDetail />} />
