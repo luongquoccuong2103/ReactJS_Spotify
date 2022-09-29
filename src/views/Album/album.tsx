@@ -24,6 +24,7 @@ const Album = (props: any) => {
         })
         .then((response) => {
           setAlbumData(response.data);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -40,10 +41,9 @@ const Album = (props: any) => {
   function millisToMinutesAndSeconds(millis: any) {
     var minutes: any = Math.floor(millis / 60000);
     var seconds: any = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   }
 
-  
   return (
     <React.Fragment>
       <div className="mediaSummary">
@@ -114,18 +114,20 @@ const Album = (props: any) => {
                         className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
                         to={`../../artist/${track.artists[index]?.id}`} state={{artistId: track.artists[index]?.id}}
                       >
-                      {track.artists[1]?.name}
+                        {track.artists[1]?.name}
                       </NavLink>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-description"> {millisToMinutesAndSeconds(track.duration_ms)} </div>
+                <div className="text-description">
+                  {' '}
+                  {millisToMinutesAndSeconds(track.duration_ms)}{' '}
+                </div>
               </div>
-              </div>
-            ))}
-          </div>
-        
+            </div>
+          ))}
+        </div>
       </div>
     </React.Fragment>
   );

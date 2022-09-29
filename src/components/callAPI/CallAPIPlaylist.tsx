@@ -49,6 +49,7 @@ const CallAPI = (props: any) => {
                   description={item.description}
                   url={url}
                   to={item.id}
+                  id={item.id}
                 />
               </>
             );

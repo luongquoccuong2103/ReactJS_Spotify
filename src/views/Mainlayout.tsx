@@ -17,6 +17,7 @@ import MyAlbum from './MyAlbum/MyAlbum';
 import MyPlayList from './MyPlaylist/MyPlayList';
 import Search from './Search/Search';
 import BrowseDetail from './Browse/BrowseDetail/BrowseDetail';
+import PlayListDetail from './MyPlaylist/PlaylistDetail/PlayListDetail';
 
 function getItem(label: string, key: any) {
   return {
@@ -65,7 +66,8 @@ const MainLayout = () => {
               <Route path="/browse" element={<BodyBrowse />} />
               <Route path="/browse/:browseid" element={<BrowseDetail />} />
               <Route path="/browse/topList/myPlayList" element={<MyPlayList />} />
-              <Route path="/myPlayList" element={<MyPlayList />} />
+              <Route path="/playlist" element={<MyPlayList />} />
+              <Route path="/playlist/:platlistid" element={<PlayListDetail />} />
               <Route path="/likedSong" element={<LikedSong />} />
               <Route path="/search" element={<Search />} />
               <Route path="/search/artistDetail" element={<ArtistDetail />} />

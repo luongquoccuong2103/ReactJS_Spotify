@@ -57,8 +57,8 @@ const SiderBar = () => {
           <Menu.Item key='3'>
             <NavLink to="browse">Browse</NavLink>
           </Menu.Item>
-          <Menu.Item key='4'>
-            <NavLink to="myPlayList">My Playlists</NavLink>
+          <Menu.Item>
+            <NavLink key='4' to="playlist">My Playlists</NavLink>
           </Menu.Item>
           <Menu.Item key='5'>
             <NavLink to="myAlbum">My Albums</NavLink>

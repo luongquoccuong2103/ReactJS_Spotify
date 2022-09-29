@@ -1,9 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Play from '../../components/assets/image/LikedSong/play';
-import './LikedSong.scss';
+import { useLocation } from 'react-router-dom';
+import Play from '../../../components/assets/image/MyAlbum/play';
 
-const LikedSong = () => {
+import './PlayListDetail.scss';
+
+const PlayListDetail = () => {
+  const location = useLocation();
+  const a = location.state.Id;
+  const url = 'https://api.spotify.com/v1/playlists/' + a;
   const token = localStorage.getItem('accessToken');
   const [data, setData]: any = useState();
   let count = 1;
@@ -18,23 +23,18 @@ const LikedSong = () => {
   useEffect(() => {
     const call = async () => {
       await axios
-        .get('https://api.spotify.com/v1/me/tracks', {
+        .get(url, {
           headers: {
             Authorization: 'Bearer ' + token
           }
         })
         .then((response) => {
           setData(response.data);
-
           console.log(response);
         })
         .catch((error) => {
           console.log(error);
         });
-
-      // if (localStorage.getItem('accessToken')) {
-      //   setToken(localStorage.getItem('accessToken')!);
-      // }
     };
 
     call();
@@ -63,27 +63,40 @@ const LikedSong = () => {
 
   return (
     <>
-      <div className="imbg">
-        <div
-          className="media-cover-2"
-          style={{
-            backgroundImage: `url(https://data.whicdn.com/images/315873335/original.jpg)`
-          }}
-        ></div>
-        <div className="flex flex-col">
-          <h3 className="text-sm text-white uppercase">Playlist</h3>
-          <h2 className="media-title ellipsis-one-line m-0">Liked Songs</h2>
-          <div className="mt-3 mb-2 text-description"></div>
-          <div className="flex">
-            <div className="media-info">
-              {data?.items
-                ? `${
-                    data.items.length == 1
-                      ? `${data.items.length} song`
-                      : `${data.items.length} songs`
-                  }`
-                : null}
+      {data ? (
+        <div className="imbg">
+          <div
+            className="media-cover-2"
+            style={{
+              backgroundImage: `url(${data.images[0].url})`
+            }}
+          ></div>
+          <div className="flex flex-col">
+            <h3 className="text-sm text-white uppercase">Playlist</h3>
+            <h2 className="media-title ellipsis-one-line m-0">{data.name}</h2>
+            <div className="mt-3 mb-2 text-description"></div>
+            <div className="flex">
+              <div className="media-info">
+                {data?.owner ? <>{data.owner.display_name}</> : null} -&nbsp;
+                <span className="text-white text-opacity-70">
+                  {data?.tracks
+                    ? `${
+                        data.tracks.total == 1
+                          ? `${data.tracks.total} song`
+                          : `${data.tracks.total} songs`
+                      }`
+                    : null}
+                </span>
+              </div>
             </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div className="pb-[24px]">
+        <div className="flex play-icon control-button h-[48px] w-[48px] text-white bg-primary">
+          <div className="play-icon h-[25px]  text-[1.5rem]">
+            <Play />
           </div>
         </div>
       </div>
@@ -124,67 +137,9 @@ const LikedSong = () => {
 
       <div className="mb-8">
         {/* insert api */}
-        {/* <div className="btn-hover group">
-          <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
-            <div className="block">
-              <div className="flex">
-                <div className="flex group-hover:hidden track-order">
-                  <div className="text-description">1</div>
-                </div>
-                <div className="hidden pt-1 group-hover:block track-play-button">
-                  <div className="flex">
-                    <div className="play-icon svg-icon-play icon">
-                      <Play />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="flex items-center">
-              <div className="track-cover">
-                <div
-                  className="media-cover-2"
-                  style={{
-                    backgroundImage: `url(https://i.scdn.co/image/ab67616d0000b273d1241debb8543af8322a7d6a)`
-                  }}
-                ></div>
-              </div>
-              <div className="flex flex-col">
-                <div className="ellipsis-one-line text-base text-white"> POP/STARS </div>
-                <div className="flex">
-                  <a
-                    className="text-description link-subtle ellipsis-one-line hover:underline"
-                    href="#"
-                  >
-                    {' '}
-                    K/DA{' '}
-                  </a>
-                  <span className="mr-1 comma-separator ng-star-inserted">,</span>
-                  <a
-                    className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                    href="#"
-                  >
-                    {' '}
-                    Madison Beer{' '}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <a className="text-description link-subtle hover:underline" href="#">
-              {' '}
-              POP/STARS{' '}
-            </a>
-
-            <div className="text-description"> Sep 19, 2022 </div>
-
-            <div className="text-description"> 3:11 </div>
-          </div>
-        </div> */}
-
-        {data?.items
-          ? data.items.map((item: any) => (
+        {data?.tracks?.items
+          ? data.tracks.items.map((item: any) => (
               <>
                 <div className="btn-hover group">
                   <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
@@ -218,15 +173,6 @@ const LikedSong = () => {
                           {item.track.name}{' '}
                         </div>
                         <div className="flex">
-                          {/* <a
-                            className="text-description link-subtle ellipsis-one-line hover:underline"
-                            href="#"
-                          >
-                            {' '}
-                            K/DA{' '}
-                          </a>
-                          <span className="mr-1 comma-separator ng-star-inserted">,</span> */}
-
                           {item.track.artists.map((artist: any, index: any) => (
                             <>
                               <a
@@ -241,14 +187,6 @@ const LikedSong = () => {
                               )}
                             </>
                           ))}
-
-                          {/* <a
-                            className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                            href="#"
-                          >
-                            {' '}
-                            Madison Beer{' '}
-                          </a> */}
                         </div>
                       </div>
                     </div>
@@ -277,4 +215,4 @@ const LikedSong = () => {
   );
 };
 
-export default LikedSong;
+export default PlayListDetail;
