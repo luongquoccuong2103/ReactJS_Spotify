@@ -7,6 +7,13 @@ const LikedSong = () => {
   const token = localStorage.getItem('accessToken');
   const [data, setData]: any = useState();
   // const [artist, setArtist]: any = useState();
+  function millisToMinutesAndSeconds(millis: any) {
+    var minutes: any = Math.floor(millis / 60000);
+
+    var seconds: any = ((millis % 60000) / 1000).toFixed(0);
+
+    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+  }
 
   useEffect(() => {
     const call = async () => {
@@ -229,9 +236,9 @@ const LikedSong = () => {
                                 {' '}
                                 {artist.name}{' '}
                               </a>
-                              <span className="mr-1 comma-separator ng-star-inserted">,</span>
                             </>
                           ))}
+                          {console.log(item.track)}
 
                           {/* <a
                             className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
@@ -254,7 +261,10 @@ const LikedSong = () => {
                       <Datefix date={item.added_at} />
                     </div>
 
-                    <div className="text-description"> 3:11 </div>
+                    <div className="text-description">
+                      {' '}
+                      {millisToMinutesAndSeconds(item.track.duration_ms)}{' '}
+                    </div>
                   </div>
                 </div>
               </>
