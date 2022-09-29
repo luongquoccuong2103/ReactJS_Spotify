@@ -227,7 +227,7 @@ const LikedSong = () => {
                           </a>
                           <span className="mr-1 comma-separator ng-star-inserted">,</span> */}
 
-                          {item.track.artists.map((artist: any) => (
+                          {item.track.artists.map((artist: any, index: any) => (
                             <>
                               <a
                                 className="text-description link-subtle ellipsis-one-line hover:underline"
@@ -236,9 +236,11 @@ const LikedSong = () => {
                                 {' '}
                                 {artist.name}{' '}
                               </a>
+                              {index != item.track.artists.length - 1 && (
+                                <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                              )}
                             </>
                           ))}
-                          {console.log(item.track)}
 
                           {/* <a
                             className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"

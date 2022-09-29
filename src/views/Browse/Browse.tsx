@@ -46,7 +46,11 @@ const BodyBrowse = () => {
                         backgroundImage: `url(${item.icons[0].url})`
                       }}
                     ></div>
-                    <NavLink to={item.id} className="category-name ellipsis-one-line txunderline">
+                    <NavLink
+                      to={item.id}
+                      className="category-name ellipsis-one-line txunderline"
+                      state={{ browseId: item.id, browseName: item.name }}
+                    >
                       {item.name}
                     </NavLink>
                   </a>

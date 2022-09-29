@@ -1,43 +1,60 @@
 import Item from 'antd/lib/list/Item';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './BrowseDetail.scss';
 
 import MusicCard from '../../../components/MusicCard/MusicCard';
 
 const BrowseDetail = (props: any) => {
+  const location = useLocation();
   const token = localStorage.getItem('accessToken');
-  const [data, setData]: any = useState();
-  // const [artist, setArtist]: any = useState();
+  const [data, setData]: any = useState('');
+  const [title, setTitle]: any = useState('');
+  const [id, setId]: any = useState('');
 
+  const url = 'https://api.spotify.com/v1/browse/categories/' + 'toplists' + '/playlists?limit=50';
   useEffect(() => {
+    if (location.state) {
+      let a = location.state;
+      setId(a.browseId);
+      setTitle(a.browseName);
+    }
     const call = async () => {
       await axios
-        .get(
-          'https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFGvOw3O4nLAf/playlists?limit=50',
-          {
-            headers: {
-              Authorization: 'Bearer ' + token
-            }
+        .get(url, {
+          headers: {
+            Authorization: 'Bearer ' + token
           }
-        )
+        })
         .then((response) => {
           setData(response.data.playlists);
-          console.log(response.data.playlists);
-
-          // console.log(response);
         })
         .catch((error) => {
           console.log(error);
         });
     };
 
+    // const call1 = async () => {
+    //   await axios
+    //     .get('https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFGvOw3O4nLAf', {
+    //       headers: {
+    //         Authorization: 'Bearer ' + token
+    //       }
+    //     })
+    //     .then((response) => {
+    //       setTitle(response.data);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
     call();
+    // call1();
   }, [token]);
   return (
     <div>
-      <h2 className="mb-4 text-heading">Top Lists</h2>
+      <h2 className="mb-4 text-heading">{title}</h2>
       <div className="block">
         <div className="common-grid">
           {/* call api */}
