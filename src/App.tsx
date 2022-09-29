@@ -5,7 +5,7 @@ import MainLayout from './views/Mainlayout';
 import { BrowserRouter } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const CLIENT_ID = 'd0d849f258c843ccb9695f91ec41400e'; // insert your client id here from spotify
+const CLIENT_ID = 'fdb817872fb14108bb1802655f229199'; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const REDIRECT_URL_AFTER_LOGIN = 'http://localhost:3000/ReactJS_Spotify';
 const SPACE_DELIMITER = '%20';
