@@ -95,7 +95,6 @@ const HomeBody = (props: any) => {
         {featurePlaylist?.playlists.items.map((item: any, index: any) => (
               <>
                 <MusicCard
-                
                   key={item.name}
                   mediades={item.name}
                   description= {item.description}

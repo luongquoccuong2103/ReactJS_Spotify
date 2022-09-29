@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PlayIcon from '../../components/assets/image/Album/playIcon';
 import Track from '../../components/assets/image/Album/track';
 import './album.scss';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Play from '../../components/assets/image/MyAlbum/play';
 
@@ -41,6 +41,13 @@ const Album = (props: any) => {
     call();
   }, [location, token]);
 
+  function millisToMinutesAndSeconds(millis: any) {
+    var minutes: any = Math.floor(millis / 60000);
+    var seconds: any = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  }
+
+  
   return (
     <React.Fragment>
       <div className="mediaSummary">
@@ -53,7 +60,7 @@ const Album = (props: any) => {
               {albumData?.artists[0].name}
             </div>
             <div className="media-info"> - {albumData?.release_date.split('-')[0]}</div>
-            <div className="media-info"> - {albumData?.total_tracks} song</div>
+            <div className="media-info"> - {albumData?.total_tracks} song </div>
           </div>
         </div>
       </div>
@@ -98,27 +105,26 @@ const Album = (props: any) => {
 
                 <div className="flex items-center">
                   <div className="flex flex-col">
-                    <div className="ellipsis-one-line text-base text-white"> POP/STARS </div>
+                    <div className="ellipsis-one-line text-base text-white"> {track.name} </div>
                     <div className="flex">
-                      <a
+                      <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline"
-                        href="#"
+                        to="artistDetail" state={{artistId: track.artists[0].id}}
                       >
-                        K/DA
-                      </a>
-                      <span className="mr-1 comma-separator ng-star-inserted">,</span>
-                      <a
+                        {track.artists[0].name}
+                      </NavLink>
+                      {track.artists[1]?.name && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
+                      <NavLink
                         className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                        href="#"
+                        to="artistDetail" state={{artistId: track.artists[1].id}}
                       >
-                        {' '}
-                        Madison Beer{' '}
-                      </a>
+                      {track.artists[1]?.name}
+                      </NavLink>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-description"> 3:11 </div>
+                <div className="text-description"> {millisToMinutesAndSeconds(track.duration_ms)} </div>
               </div>
               </div>
             ))}
