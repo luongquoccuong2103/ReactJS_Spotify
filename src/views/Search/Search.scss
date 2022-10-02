@@ -1,3 +1,10 @@
+.search-input-container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
+
 .search-control {
   width: 364px;
   .input-container {
@@ -26,9 +33,7 @@
       padding-right: 4px;
       width: 100%;
       outline: none;
-    }
-    .input-search:focus {
-      border: none;
+      color: black;
     }
     .times-icon-container {
       width: 48px;

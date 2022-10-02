@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import './ArtistCard.scss';
 
 const ArtistCard = (props: any) => {
+  
   return (
     <React.Fragment>
-      <NavLink to="artistDetail" className="contented  max-h-[280px]">
+      <NavLink to={props.to} className="contented  max-h-[280px]" state={{artistId: props.id}}>
         <div className="flex flex-col flex-1" >
           <div className="media-cover">
             <div

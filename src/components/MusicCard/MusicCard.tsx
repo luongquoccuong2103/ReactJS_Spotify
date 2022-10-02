@@ -4,6 +4,7 @@ import Play from '../assets/image/MyAlbum/play';
 import './MusicCard.scss';
 
 const MusicCard = (props: any) => {
+   
   return (
     <React.Fragment>
       <NavLink to={props.to} className="contented  max-h-[260px]" state={{Id: props.id}}>

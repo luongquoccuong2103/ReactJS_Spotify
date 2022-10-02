@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import PlayIcon from '../../components/assets/image/Album/playIcon';
 import './ArtistDetail.scss';
-const ArtistDetail = () => {
+const ArtistDetail = (props : any) => {
+  
   const location = useLocation();
+  
   const [artistData, setArtistData]: any = useState();
   const [artistTopTracks, setArtistTopTracks] : any = useState();
-  const [token, setToken] = useState('');
+  const token = localStorage.getItem('accessToken');
   const url = 'https://api.spotify.com/v1/artists/' + location.state.artistId;
   const urlGetTopTracks = 'https://api.spotify.com/v1/artists/' + location.state.artistId +  '/top-tracks?country=ES'
   let order = 1;
@@ -29,9 +31,6 @@ const ArtistDetail = () => {
           console.log(error);
         });
 
-      if (localStorage.getItem('accessToken')) {
-        setToken(localStorage.getItem('accessToken')!);
-      }
     };
 
     const getArtistTopTrack = async () => {
@@ -49,9 +48,6 @@ const ArtistDetail = () => {
           console.log(error);
         });
 
-      if (localStorage.getItem('accessToken')) {
-        setToken(localStorage.getItem('accessToken')!);
-      }
     };
 
     getArtist();

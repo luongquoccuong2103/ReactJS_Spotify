@@ -70,10 +70,10 @@ const MainLayout = () => {
               <Route path="/playlist/:platlistid" element={<PlayListDetail />} />
               <Route path="/likedSong" element={<LikedSong />} />
               <Route path="/search" element={<Search />} />
-              <Route path="/search/artistDetail" element={<ArtistDetail />} />
-              <Route path="/search/artistDetail/album" element={<Album />} />
-              <Route path="/search/album" element={<Album />} />
-              <Route path="/search/album/artistDetail" element={<ArtistDetail />} />
+              {/* <Route path="/search/artist" element={<ArtistDetail />} /> */}
+              {/* <Route path="/search/:albumId" element={<Album />} /> */}
+              <Route path="/search/::playlistid" element={<PlayListDetail />} />
+
             </Routes>
 
             <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>

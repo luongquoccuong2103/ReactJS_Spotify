@@ -84,7 +84,7 @@ const HomeBody = (props: any) => {
         <div className="content-grid">
           {featurePlaylist?.playlists.items.map((item: any, index: any) => (
             <MusicCard
-              to={`../album/${item.id}`}
+              to={`../playlist/${item.id}`}
               key={index}
               mediades={item.name}
               description={item.description}

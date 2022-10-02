@@ -1,0 +1,6 @@
+.common-grid {
+    grid-gap: 24px;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    display: grid;
+  }
