@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ReactJS_Spotify/static/css/main.5c3c9b3c.css",
-    "main.js": "/ReactJS_Spotify/static/js/main.47d8eba1.js",
+    "main.css": "/ReactJS_Spotify/static/css/main.aec40fe1.css",
+    "main.js": "/ReactJS_Spotify/static/js/main.822348af.js",
     "static/js/787.28cb0dcd.chunk.js": "/ReactJS_Spotify/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/ReactJS_Spotify/index.html",
-    "main.5c3c9b3c.css.map": "/ReactJS_Spotify/static/css/main.5c3c9b3c.css.map",
-    "main.47d8eba1.js.map": "/ReactJS_Spotify/static/js/main.47d8eba1.js.map",
+    "main.aec40fe1.css.map": "/ReactJS_Spotify/static/css/main.aec40fe1.css.map",
+    "main.822348af.js.map": "/ReactJS_Spotify/static/js/main.822348af.js.map",
     "787.28cb0dcd.chunk.js.map": "/ReactJS_Spotify/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c3c9b3c.css",
-    "static/js/main.47d8eba1.js"
+    "static/css/main.aec40fe1.css",
+    "static/js/main.822348af.js"
   ]
 }
