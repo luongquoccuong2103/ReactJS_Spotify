@@ -1,6 +1,6 @@
 const Pause = () => {
     return (
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3"
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 color-black"
         width="332.145px" height="332.146px" viewBox="0 0 332.145 332.146"  
         >
    

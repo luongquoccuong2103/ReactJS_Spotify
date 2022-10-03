@@ -33,7 +33,7 @@ const SiderBar = () => {
   }, [token]);
   return (
     <>
-      <div className="h-[100vh]">
+      <div className="h-full">
         <div id="logo" className="px-[24px] mb-[16px] mt-[24px]">
           <span>
             <Logo />

@@ -15,7 +15,6 @@ const ArtistDetail = (props : any) => {
   let order = 1;
   useEffect(() => {
 
-
     const getArtist = async () => {
       await axios
         .get(url, {

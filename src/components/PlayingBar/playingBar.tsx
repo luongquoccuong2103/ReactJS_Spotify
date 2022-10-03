@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import LeftControlButton from '../assets/image/PlayingBar/leftControlButton';
 import Pause from '../assets/image/PlayingBar/pause';
 import PlayButton from '../assets/image/PlayingBar/playButton';
 import PlayerVolume from '../assets/image/PlayingBar/playerVolume';
 import RightControlButton from '../assets/image/PlayingBar/rightControllButton';
 import './playingBar.scss';
+import { FiRepeat } from 'react-icons/fi';
+import { BsShuffle, BsFillPauseCircleFill, BsFillPlayCircleFill } from 'react-icons/bs';
+import { CgPlayTrackPrev, CgPlayTrackNext } from 'react-icons/cg';
 const PlayingBar = () => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const token = localStorage.getItem('accessToken');
+  const [data, setData]: any = useState();
 
   const onButtonPlayClick = () => {
     if (isPlaying == true) {
@@ -14,28 +20,111 @@ const PlayingBar = () => {
     } else {
       setIsPlaying(true);
     }
-    
   };
+
+  useEffect(() => {
+    const call = async () => {
+      await axios
+        .get('https://api.spotify.com/v1/me/player/currently-playing', {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        })
+        .then((response) => {
+          setData(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    call();
+  }, [token]);
+
+  const changeTrack = async (type: any) => {
+    await axios
+      .post(
+        `https://api.spotify.com/v1/me/player/${type}`,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    await axios
+      .get('https://api.spotify.com/v1/me/player/currently-playing', {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      })
+      .then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
-    <div className="container">
-      <div className="now-playing-bar-left"></div>
+    <div className="container fixed">
+      <div className="now-playing-bar-left">
+        {data && (
+          <div className="track">
+            <div className="track-image">
+              <img src={data.item.album.images[2].url} alt="currentPlaying" />
+            </div>
+            <div className="track-info">
+              <h4>{data.item.name}</h4>
+              <h6>{data.item.artists[0].name}</h6>
+            </div>
+          </div>
+        )}
+      </div>
       <div className="now-playing-bar-center">
         <div className="player-controls">
           <div className="flex justify-center">
+            <div className="control-button BsShuffle">
+              <BsShuffle />
+            </div>
             <div className="control-button hover:text-white">
-              <LeftControlButton />
+              <CgPlayTrackPrev
+                className="CgPlayTrack"
+                onClick={() => {
+                  changeTrack('previous');
+                }}
+              />
             </div>
             <div className="mx-4">
-              <div
-                className="flex play-icon control-button text-black bg-white"
-                onClick={onButtonPlayClick}
-              >
-                {isPlaying ? <Pause /> : <PlayButton />}
-                
+              <div className="flex play-icon control-button " onClick={onButtonPlayClick}>
+                {isPlaying ? (
+                  <BsFillPauseCircleFill className="playIcon" />
+                ) : (
+                  <BsFillPlayCircleFill className="playIcon" />
+                )}
               </div>
             </div>
             <div className="control-button hover:text-white">
-              <RightControlButton />
+              <CgPlayTrackNext
+                className="CgPlayTrack"
+                onClick={() => {
+                  changeTrack('next');
+                }}
+              />
+            </div>
+            <div className="control-button FiRepeat">
+              <FiRepeat />
             </div>
           </div>
         </div>
@@ -56,7 +145,7 @@ const PlayingBar = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center ml-20">
         <div className="mr-5">
           <div className="flex items-center">
             <div className="inline-block">
@@ -72,7 +161,7 @@ const PlayingBar = () => {
           <PlayerVolume />
           <div className="flex-1 mx-2 slider">
             <div className="ant-slider">
-              <div className="ant-slider-rail">
+              <div className="ant-slider-rail w-20">
                 <div dir="1tr">
                   <div className="ant-slider-track"></div>
                 </div>
