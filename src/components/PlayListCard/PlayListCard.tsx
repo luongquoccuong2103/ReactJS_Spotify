@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Play from '../assets/image/MyAlbum/play';
 
 const PlayListCard = (props: any) => {
@@ -65,10 +66,13 @@ const PlayListCard = (props: any) => {
             </div>
           </div>
 
-          <a className="text-description link-subtle hover:underline" href="#">
+          <NavLink
+            className="text-description link-subtle hover:underline"
+            to={`../../album/${props.albumid}`}
+          >
             {' '}
             {props.albumname}{' '}
-          </a>
+          </NavLink>
 
           <div className="text-description">
             {/* {item.added_at} */}

@@ -31,7 +31,7 @@ const PlayListDetail = () => {
         })
         .then((response) => {
           setData(response.data);
-          console.log(response);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -39,7 +39,7 @@ const PlayListDetail = () => {
     };
 
     call();
-  }, [token]);
+  }, [location, token]);
 
   const Datefix = (props: any) => {
     let date = new Date(props.date).toLocaleDateString('en-US', {
@@ -201,6 +201,7 @@ const PlayListDetail = () => {
                   artists={item.track.artists}
                   name={item.track.name}
                   albumname={item.track.album.name}
+                  albumid={item.track.album.id}
                   added_at={item.added_at}
                   duration_ms={item.track.duration_ms}
                 />

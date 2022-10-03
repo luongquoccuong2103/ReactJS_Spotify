@@ -65,7 +65,7 @@ const MainLayout = () => {
               <Route path="/myAlbum" element={<MyAlbum />} />
               <Route path="/browse" element={<BodyBrowse />} />
               <Route path="/browse/:browseid" element={<BrowseDetail />} />
-              <Route path="/browse/topList/myPlayList" element={<MyPlayList />} />
+              {/* <Route path="/browse/topList/myPlayList" element={<MyPlayList />} /> */}
               <Route path="/playlist" element={<MyPlayList />} />
               <Route path="/playlist/:platlistid" element={<PlayListDetail />} />
               <Route path="/likedSong" element={<LikedSong />} />
