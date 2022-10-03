@@ -14,10 +14,9 @@ const PlayingBar = () => {
     } else {
       setIsPlaying(true);
     }
-    
   };
   return (
-    <div className="container">
+    <div className="container fixed">
       <div className="now-playing-bar-left"></div>
       <div className="now-playing-bar-center">
         <div className="player-controls">
@@ -31,7 +30,6 @@ const PlayingBar = () => {
                 onClick={onButtonPlayClick}
               >
                 {isPlaying ? <Pause /> : <PlayButton />}
-                
               </div>
             </div>
             <div className="control-button hover:text-white">

@@ -73,7 +73,6 @@ const MainLayout = () => {
               {/* <Route path="/search/artist" element={<ArtistDetail />} /> */}
               {/* <Route path="/search/:albumId" element={<Album />} /> */}
               <Route path="/search/::playlistid" element={<PlayListDetail />} />
-
             </Routes>
 
             <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
