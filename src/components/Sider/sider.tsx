@@ -85,7 +85,7 @@ const SiderBar = () => {
               </li>
             </ul>
             <div className="mx-6 separator"></div>
-            <ul className="playlists">
+            <ul className="playlists overflow-auto">
               {/* <li className="px-2">
                 <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
                   <a className="flex items-center px-4 rounded-[4px] bg-[black] w-full" href="#">
@@ -96,7 +96,7 @@ const SiderBar = () => {
 
               {data?.items
                 ? data.items.map((item: any, index: any) => (
-                    <li className="px-2" key={index}>
+                    <div className="px-2 " key={index}>
                       <Menu.Item key="6" style={{ height: '40px', backgroundColor: 'black' }}>
                         <NavLink
                           className={`flex items-center px-4 rounded-[4px] bg-[black] w-full text-white`}
@@ -106,7 +106,7 @@ const SiderBar = () => {
                           {item.name}
                         </NavLink>
                       </Menu.Item>
-                    </li>
+                    </div>
                   ))
                 : null}
             </ul>
