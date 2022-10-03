@@ -1,9 +1,21 @@
-import LeftControlButton from "../assets/image/PlayingBar/leftControlButton";
-import PlayButton from "../assets/image/PlayingBar/playButton";
-import PlayerVolume from "../assets/image/PlayingBar/playerVolume";
-import RightControlButton from "../assets/image/PlayingBar/rightControllButton";
-import "./playingBar.scss";
+import { useState } from 'react';
+import LeftControlButton from '../assets/image/PlayingBar/leftControlButton';
+import Pause from '../assets/image/PlayingBar/pause';
+import PlayButton from '../assets/image/PlayingBar/playButton';
+import PlayerVolume from '../assets/image/PlayingBar/playerVolume';
+import RightControlButton from '../assets/image/PlayingBar/rightControllButton';
+import './playingBar.scss';
 const PlayingBar = () => {
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const onButtonPlayClick = () => {
+    if (isPlaying == true) {
+      setIsPlaying(false);
+    } else {
+      setIsPlaying(true);
+    }
+    
+  };
   return (
     <div className="container">
       <div className="now-playing-bar-left"></div>
@@ -14,8 +26,12 @@ const PlayingBar = () => {
               <LeftControlButton />
             </div>
             <div className="mx-4">
-              <div className="flex play-icon control-button text-black bg-white">
-                <PlayButton />
+              <div
+                className="flex play-icon control-button text-black bg-white"
+                onClick={onButtonPlayClick}
+              >
+                {isPlaying ? <Pause /> : <PlayButton />}
+                
               </div>
             </div>
             <div className="control-button hover:text-white">
@@ -26,7 +42,7 @@ const PlayingBar = () => {
 
         <div className="player-playback">
           <span _ngcontent-luu-c73="" className="timer-duration"></span>
-          <div className="flex-1 mx-2 ng-untouched ng-pristine ng-valid">
+          <div className="flex-1 mx-2 ">
             <div className="ant-slider">
               <div className="ant-slider-rail">
                 <div dir="1tr">
