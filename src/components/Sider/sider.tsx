@@ -18,7 +18,8 @@ const SiderBar = () => {
         })
         .then((response) => {
           setData(response.data);
-          // console.log(response);
+          console.log(response.data);
+          console.log('hi');
         })
         .catch((error) => {
           console.log(error);
@@ -48,19 +49,21 @@ const SiderBar = () => {
           mode="inline"
         >
           {/* sau dung nav link de css chu */}
-          <Menu.Item key='1'>
+          <Menu.Item key="1">
             <NavLink to="/ReactJS_Spotify">Home</NavLink>
           </Menu.Item>
-          <Menu.Item key='2'>
+          <Menu.Item key="2">
             <NavLink to="search">Search</NavLink>
           </Menu.Item>
-          <Menu.Item key='3'>
+          <Menu.Item key="3">
             <NavLink to="browse">Browse</NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink key='4' to="playlist">My Playlists</NavLink>
+            <NavLink key="4" to="playlist">
+              My Playlists
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key='5'>
+          <Menu.Item key="5">
             <NavLink to="myAlbum">My Albums</NavLink>
           </Menu.Item>
 
@@ -71,7 +74,7 @@ const SiderBar = () => {
             </h1>
             <ul className="h-[40px]">
               <li className="px-2">
-                <Menu.Item key='5' style={{ height: '40px', backgroundColor: 'black' }}>
+                <Menu.Item key="5" style={{ height: '40px', backgroundColor: 'black' }}>
                   <NavLink
                     to="likedSong"
                     className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
@@ -94,10 +97,11 @@ const SiderBar = () => {
               {data?.items
                 ? data.items.map((item: any, index: any) => (
                     <li className="px-2" key={index}>
-                      <Menu.Item key='6' style={{ height: '40px', backgroundColor: 'black' }} >
+                      <Menu.Item key="6" style={{ height: '40px', backgroundColor: 'black' }}>
                         <NavLink
-                          className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
-                          to=""
+                          className={`flex items-center px-4 rounded-[4px] bg-[black] w-full text-white`}
+                          to={`playlist/${item.id}`}
+                          state={{ Id: item.id }}
                         >
                           {item.name}
                         </NavLink>

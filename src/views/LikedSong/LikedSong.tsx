@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Play from '../../components/assets/image/LikedSong/play';
+import PlayListCard from '../../components/PlayListCard/PlayListCard';
 import './LikedSong.scss';
 
 const LikedSong = () => {
@@ -26,7 +27,7 @@ const LikedSong = () => {
         .then((response) => {
           setData(response.data);
 
-          console.log(response);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -186,7 +187,7 @@ const LikedSong = () => {
         {data?.items
           ? data.items.map((item: any) => (
               <>
-                <div className="btn-hover group">
+                {/* <div className="btn-hover group">
                   <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                     <div className="block">
                       <div className="flex">
@@ -218,37 +219,23 @@ const LikedSong = () => {
                           {item.track.name}{' '}
                         </div>
                         <div className="flex">
-                          {/* <a
-                            className="text-description link-subtle ellipsis-one-line hover:underline"
-                            href="#"
-                          >
-                            {' '}
-                            K/DA{' '}
-                          </a>
-                          <span className="mr-1 comma-separator ng-star-inserted">,</span> */}
+                          {item?.track
+                            ? item.track.artists.map((artist: any, index: any) => (
+                                <>
+                                  <a
+                                    className="text-description link-subtle ellipsis-one-line hover:underline"
+                                    href="#"
+                                  >
+                                    {' '}
+                                    {artist.name}{' '}
+                                  </a>
 
-                          {item.track.artists.map((artist: any, index: any) => (
-                            <>
-                              <a
-                                className="text-description link-subtle ellipsis-one-line hover:underline"
-                                href="#"
-                              >
-                                {' '}
-                                {artist.name}{' '}
-                              </a>
-                              {index != item.track.artists.length - 1 && (
-                                <span className="mr-1 comma-separator ng-star-inserted">,</span>
-                              )}
-                            </>
-                          ))}
-
-                          {/* <a
-                            className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                            href="#"
-                          >
-                            {' '}
-                            Madison Beer{' '}
-                          </a> */}
+                                  {index != item.track.artists.length - 1 && (
+                                    <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                                  )}
+                                </>
+                              ))
+                            : null}
                         </div>
                       </div>
                     </div>
@@ -259,7 +246,6 @@ const LikedSong = () => {
                     </a>
 
                     <div className="text-description">
-                      {/* {item.added_at} */}
                       <Datefix date={item.added_at} />
                     </div>
 
@@ -268,7 +254,16 @@ const LikedSong = () => {
                       {millisToMinutesAndSeconds(item.track.duration_ms)}{' '}
                     </div>
                   </div>
-                </div>
+                </div> */}
+                <PlayListCard
+                  count={count++}
+                  url={item.track.album.images[0].url}
+                  artists={item.track.artists}
+                  name={item.track.name}
+                  albumname={item.track.album.name}
+                  added_at={item.added_at}
+                  duration_ms={item.track.duration_ms}
+                />
               </>
             ))
           : null}
