@@ -20,7 +20,7 @@ const MyAlbum = () => {
         })
         .then((response) => {
           setData(response.data);
-          // console.log(response);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -47,6 +47,8 @@ const MyAlbum = () => {
                     mediades={item.album.name}
                     description={item.album.artists[0].name}
                     url={item.album.images[0].url}
+                    to={`../album/${item.album.id}`}
+                    id={item.album.id}
                   />
                 </>
               ))
