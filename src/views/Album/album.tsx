@@ -101,21 +101,15 @@ const Album = (props: any) => {
                         <>
                           <NavLink
                             className="text-description link-subtle ellipsis-one-line hover:underline"
-                            to={`../../artist/${track.artists[0].id}`}
-                            state={{ artistId: track.artists[0].id }}
+                            to={`../../artist/${artist.id}`}
+                            state={{ artistId: artist.id }}
                           >
-                            {track.artists[0].name}
+                            {artist.name}
                           </NavLink>
 
-                          <span className="mr-1 comma-separator ng-star-inserted">,</span>
+                          {index != track.artists.length - 1 && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
 
-                          <NavLink
-                            className="text-description link-subtle ellipsis-one-line hover:underline ng-star-inserted"
-                            to={`../../artist/${track.artists[index]?.id}`}
-                            state={{ artistId: track.artists[index]?.id }}
-                          >
-                            {track.artists[1]?.name}
-                          </NavLink>
+                         
                         </>
                       ))}
                     </div>
