@@ -50,13 +50,14 @@ const PlayListCard = (props: any) => {
               <div className="flex">
                 {props.artists.map((artist: any, index: any) => (
                   <>
-                    <a
+                    <NavLink
                       className="text-description link-subtle ellipsis-one-line hover:underline"
-                      href="#"
+                      to={`../../artist/${artist.id}`}
+                      state={{ artistId: artist.id }}
                     >
                       {' '}
                       {artist.name}{' '}
-                    </a>
+                    </NavLink>
                     {index != props.artists.length - 1 && (
                       <span className="mr-1 comma-separator ng-star-inserted">,</span>
                     )}
@@ -69,6 +70,7 @@ const PlayListCard = (props: any) => {
           <NavLink
             className="text-description link-subtle hover:underline"
             to={`../../album/${props.albumid}`}
+            state={{ Id: props.albumid }}
           >
             {' '}
             {props.albumname}{' '}
