@@ -14,7 +14,6 @@ const Album = (props: any) => {
   const token = localStorage.getItem('accessToken');
   const url = 'https://api.spotify.com/v1/albums/' + location.state.Id;
   useEffect(() => {
-   
     const call = async () => {
       await axios
         .get(url, {
@@ -29,7 +28,6 @@ const Album = (props: any) => {
         .catch((error) => {
           console.log(error);
         });
-
     };
 
     call();
@@ -77,9 +75,8 @@ const Album = (props: any) => {
         <div className="mb-8">
           {/* insert api */}
 
-         
-            {albumData?.tracks.items.map((track: any, index: any) => (
-               <div className="group" key={index}>
+          {albumData?.tracks.items.map((track: any, index: any) => (
+            <div className="group" key={index}>
               <div className="album-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                 <div className="block">
                   <div className="flex">
@@ -100,14 +97,20 @@ const Album = (props: any) => {
                   <div className="flex flex-col">
                     <div className="ellipsis-one-line text-base text-white"> {track.name} </div>
                     <div className="flex">
-                      {track.artists.map((artist : any, index : any) => (
-                        <NavLink
-                        className="text-description link-subtle ellipsis-one-line hover:underline"
-                        to={`../../artist/${artist.id}`} state={{artistId: artist.id}}
-                      >
-                        {artist.name}
-                        {index != track.artists.length - 1 && (<span className="mr-1 comma-separator ng-star-inserted">,</span>)}
-                      </NavLink> 
+                      {track.artists.map((artist: any, index: any) => (
+                        <>
+                          <NavLink
+                            className="text-description link-subtle ellipsis-one-line hover:underline"
+                            to={`../../artist/${artist.id}`}
+                            state={{ artistId: artist.id }}
+                          >
+                            {artist.name}
+                          </NavLink>
+
+                          {index != track.artists.length - 1 && <span className="mr-1 comma-separator ng-star-inserted">,</span>}
+
+                         
+                        </>
                       ))}
                     </div>
                   </div>

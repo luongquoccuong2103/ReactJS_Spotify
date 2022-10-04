@@ -2,8 +2,9 @@ import 'antd/dist/antd.css';
 import ReactDOM from 'react-dom/client';
 import './App.css';
 import MainLayout from './views/Mainlayout';
-import { BrowserRouter } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { BrowserRouter, Navigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import AuthContext from './components/store/auth-context';
 
 const CLIENT_ID = 'b4801a8426bb49d7833fa732754e43c2'; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize';
@@ -52,11 +53,14 @@ function App() {
   const handleLogin = () => {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
+  const authCtx = useContext(AuthContext);
+
   return (
     <>
       <BrowserRouter>
+        {/* {authCtx.isLoggedIn && <MainLayout />}
+        {!authCtx.isLoggedIn && <Navigate to="/auth" />} */}
         <MainLayout />
-        {/* <button onClick={handleLogin}>Login</button> */}
       </BrowserRouter>
     </>
   );

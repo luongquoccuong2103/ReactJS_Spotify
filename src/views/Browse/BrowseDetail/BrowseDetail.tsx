@@ -52,6 +52,7 @@ const BrowseDetail = (props: any) => {
                   description={item.description}
                   url={item.images[0].url}
                   to={`../playlist/${item.id}`}
+                  id={item.id}
                 />
               ))
             : null}

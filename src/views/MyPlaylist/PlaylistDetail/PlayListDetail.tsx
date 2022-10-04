@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Play from '../../../components/assets/image/MyAlbum/play';
+import PlayListCard from '../../../components/PlayListCard/PlayListCard';
 
 import './PlayListDetail.scss';
 
@@ -35,7 +36,7 @@ const PlayListDetail = () => {
         })
         .then((response) => {
           setData(response.data);
-          console.log(response);
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -43,7 +44,7 @@ const PlayListDetail = () => {
     };
 
     call();
-  }, [token]);
+  }, [location, token]);
 
   const Datefix = (props: any) => {
     let date = new Date(props.date).toLocaleDateString('en-US', {
@@ -52,18 +53,6 @@ const PlayListDetail = () => {
       day: '2-digit'
     });
     return <p>{date}</p>;
-  };
-
-  const Artistlist = (props: any) => {
-    return (
-      <>
-        <a className="text-description link-subtle ellipsis-one-line hover:underline" href="#">
-          {' '}
-          {props.artist}{' '}
-        </a>
-        <span className="mr-1 comma-separator ng-star-inserted">,</span>
-      </>
-    );
   };
 
   return (
@@ -146,7 +135,7 @@ const PlayListDetail = () => {
         {data?.tracks?.items
           ? data.tracks.items.map((item: any) => (
               <>
-                <div className="btn-hover group" onClick={() => changeCurrentPlaylist(item.id)}>
+                {/* <div className="btn-hover group">
                   <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                     <div className="block">
                       <div className="flex">
@@ -202,7 +191,6 @@ const PlayListDetail = () => {
                     </a>
 
                     <div className="text-description">
-                      {/* {item.added_at} */}
                       <Datefix date={item.added_at} />
                     </div>
 
@@ -211,7 +199,17 @@ const PlayListDetail = () => {
                       {millisToMinutesAndSeconds(item.track.duration_ms)}{' '}
                     </div>
                   </div>
-                </div>
+                </div> */}
+                <PlayListCard
+                  count={count++}
+                  url={item.track.album.images[0].url}
+                  artists={item.track.artists}
+                  name={item.track.name}
+                  albumname={item.track.album.name}
+                  albumid={item.track.album.id}
+                  added_at={item.added_at}
+                  duration_ms={item.track.duration_ms}
+                />
               </>
             ))
           : null}
