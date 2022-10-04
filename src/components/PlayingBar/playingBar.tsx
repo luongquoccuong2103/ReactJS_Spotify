@@ -77,6 +77,49 @@ const PlayingBar = () => {
       });
   };
 
+  const changeState = async () => {
+    const state = isPlaying ? 'pause' : 'play';
+    await axios
+      .put(
+        `https://api.spotify.com/v1/me/player/${state}`,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then((response) => {
+        setIsPlaying(!isPlaying);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
+  const setVolume = async (e: any) => {
+    await axios
+      .put(
+        'https://api.spotify.com/v1/me/player/volume',
+        {},
+        {
+          params: {
+            volume_percent: parseInt(e.target.value)
+          },
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        }
+      )
+      .then((response) => {
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="container fixed">
       <div className="now-playing-bar-left">
@@ -109,9 +152,9 @@ const PlayingBar = () => {
             <div className="mx-4">
               <div className="flex play-icon control-button " onClick={onButtonPlayClick}>
                 {isPlaying ? (
-                  <BsFillPauseCircleFill className="playIcon" />
+                  <BsFillPauseCircleFill onClick={changeState} className="playIcon" />
                 ) : (
-                  <BsFillPlayCircleFill className="playIcon" />
+                  <BsFillPlayCircleFill onClick={changeState} className="playIcon" />
                 )}
               </div>
             </div>
@@ -158,9 +201,10 @@ const PlayingBar = () => {
           </div>
         </div>
         <div className="player-volume">
-          <PlayerVolume />
-          <div className="flex-1 mx-2 slider">
-            <div className="ant-slider">
+          <PlayerVolume/>
+          <div className="flex-1 mx-2  slider">
+          <input className='volume-bar ' type="range" min={0} max={100} onMouseUp={(e) => setVolume(e)} />
+            {/* <div className="ant-slider">
               <div className="ant-slider-rail w-20">
                 <div dir="1tr">
                   <div className="ant-slider-track"></div>
@@ -169,7 +213,7 @@ const PlayingBar = () => {
                   <div className="ant-slider-handle"></div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

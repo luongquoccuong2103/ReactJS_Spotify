@@ -11,6 +11,7 @@ const PlayListDetail = () => {
   const url = 'https://api.spotify.com/v1/playlists/' + a;
   const token = localStorage.getItem('accessToken');
   const [data, setData]: any = useState();
+  const [selectedPlaylistId, setSelectedPlaylistId] = useState();
   let count = 1;
   function millisToMinutesAndSeconds(millis: any) {
     var minutes: any = Math.floor(millis / 60000);
@@ -18,6 +19,10 @@ const PlayListDetail = () => {
     var seconds: any = ((millis % 60000) / 1000).toFixed(0);
 
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+  }
+
+  const changeCurrentPlaylist = (selectedPlaylistId : any) => {
+
   }
 
   useEffect(() => {
@@ -141,7 +146,7 @@ const PlayListDetail = () => {
         {data?.tracks?.items
           ? data.tracks.items.map((item: any) => (
               <>
-                <div className="btn-hover group">
+                <div className="btn-hover group" onClick={() => changeCurrentPlaylist(item.id)}>
                   <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
                     <div className="block">
                       <div className="flex">

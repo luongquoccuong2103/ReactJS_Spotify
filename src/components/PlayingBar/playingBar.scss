@@ -156,7 +156,13 @@ $white: #FFFFFF;
 
 .player-volume{
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    input {
+        width: 10rem;
+        border-radius: 2rem;
+        height: 0.3rem;
+    }
 }
 
 .icon-volume{
@@ -180,4 +186,8 @@ $white: #FFFFFF;
     h6{
         color: #b3b3b3;
     }
+}
+
+.volume-bar{
+    margin-bottom: 5px;
 }
