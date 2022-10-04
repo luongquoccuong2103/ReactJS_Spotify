@@ -18,8 +18,6 @@ const SiderBar = () => {
         })
         .then((response) => {
           setData(response.data);
-          console.log(response.data);
-          console.log('hi');
         })
         .catch((error) => {
           console.log(error);
