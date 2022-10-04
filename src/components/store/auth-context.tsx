@@ -1,71 +1,79 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
-let logoutTimer: string | number | NodeJS.Timeout | undefined;
+const CLIENT_ID = 'fdb817872fb14108bb1802655f229199'; // insert your client id here from spotify
+const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize';
+const REDIRECT_URL_AFTER_LOGIN = 'http://localhost:3000/ReactJS_Spotify';
+const SPACE_DELIMITER = '%20';
+const SCOPES = [
+  'user-read-currently-playing',
+  'user-read-playback-state',
+  'playlist-read-private',
+  'user-read-recently-played',
+  'user-library-read'
+];
+const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
+
+const getReturnedParamsFromSpotifyAuth = (hash: any) => {
+  const stringAfterHashtag = hash.substring(1);
+  const paramsInUrl = stringAfterHashtag.split('&');
+  const paramsSplitUp = paramsInUrl.reduce((accumulater: any, currentValue: any) => {
+    const [key, value] = currentValue.split('=');
+    accumulater[key] = value;
+    // console.log(value);
+    return accumulater;
+  }, {});
+
+  return paramsSplitUp;
+};
+
+//
 
 const AuthContext = React.createContext({
-  token: '',
-  isLoggedIn: false
+  isLoggedIn: false,
+  token: ''
 });
-const calculateRemainingTime = (expirationTime: any) => {
-  const currentTime = new Date().getTime();
-  const adjExpirationTime = new Date(expirationTime).getTime();
 
-  const remainingDuration = adjExpirationTime - currentTime;
-
-  return remainingDuration;
-};
-
-const retrieveStoredToken = () => {
-  const storedToken = localStorage.getItem('accessToken');
-  const storedExpirationDate = localStorage.getItem('expiresIn');
-
-  const remainingTime = calculateRemainingTime(storedExpirationDate);
-
-  if (remainingTime <= 3600) {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('expiresIn');
-    return null;
-  }
-  return {
-    token: storedToken,
-    duration: remainingTime
-  };
-};
 export const AuthContextProvider = (props: any) => {
-  const tokenData = retrieveStoredToken();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const token: any =
+    localStorage.getItem('accessToken') !== null ? localStorage.getItem('accessToken') : '';
 
-  let initialToken;
-  if (tokenData) {
-    initialToken = tokenData.token;
-  }
+  useEffect(() => {
+    if (window.location.hash) {
+      const { access_token, expires_in, token_type } = getReturnedParamsFromSpotifyAuth(
+        window.location.hash
+      );
 
-  const [token, setToken]: any = useState(initialToken);
+      localStorage.clear();
 
-  const userIsLoggedIn = !!token;
-
-  const logoutHandler = useCallback(() => {
-    setToken(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('expirationTime');
-
-    if (logoutTimer) {
-      clearTimeout(logoutTimer);
+      localStorage.setItem('accessToken', access_token);
+      localStorage.setItem('tokenType', token_type);
+      localStorage.setItem('expiresIn', expires_in);
+      setIsLoggedIn(true);
     }
   }, []);
 
-  useEffect(() => {
-    if (tokenData) {
-      console.log(tokenData.duration);
-      logoutTimer = setTimeout(logoutHandler, tokenData.duration);
-    }
-  }, [tokenData, logoutHandler]);
+  if (!token) {
+    window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
+  }
 
-  const contextValue = {
-    token: token,
-    isLoggedIn: userIsLoggedIn
-  };
+  console.log(isLoggedIn);
 
-  return <AuthContext.Provider value={contextValue}>{props.children}</AuthContext.Provider>;
+  //   if (!token) {
+  //     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
+  //   }
+
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        token: token
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthContext;
