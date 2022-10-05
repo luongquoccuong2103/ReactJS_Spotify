@@ -30,86 +30,104 @@ const SiderBar = () => {
 
     call();
   }, [token]);
+  const items = [
+    {
+      label: (
+        <NavLink className="list" to="/ReactJS_Spotify">
+          Home
+        </NavLink>
+      ),
+      key: 'Home'
+    },
+    {
+      label: (
+        <NavLink className="list" to="/search">
+          Search
+        </NavLink>
+      ),
+      key: 'Search'
+    },
+    {
+      label: (
+        <NavLink className="list" to="/browse">
+          Browse
+        </NavLink>
+      ),
+      key: 'Browse'
+    },
+    {
+      label: (
+        <NavLink className="list" to="/playlist">
+          My Playlists
+        </NavLink>
+      ),
+      key: 'MyPlaylists'
+    },
+    {
+      label: (
+        <NavLink className="list" to="/myAlbum">
+          My Albums
+        </NavLink>
+      ),
+      key: 'My Albums'
+    }
+  ];
   return (
     <>
-      <div className="h-[100vh]">
+      <div className="">
         <div id="logo" className="px-[24px] mb-[16px] mt-[24px]">
           <span>
             <Logo />
           </span>
         </div>
+
         <Menu
           style={{
             backgroundColor: 'black',
             color: 'white',
             border: 'none'
           }}
-          mode="inline"
-        >
-          {/* sau dung nav link de css chu */}
-          <Menu.Item key="1">
-            <NavLink to="/ReactJS_Spotify">Home</NavLink>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <NavLink to="search">Search</NavLink>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <NavLink to="browse">Browse</NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <NavLink key="4" to="playlist">
-              My Playlists
-            </NavLink>
-          </Menu.Item>
-          <Menu.Item key="5">
-            <NavLink to="myAlbum">My Albums</NavLink>
-          </Menu.Item>
-
-          <div className="flex flex-col pt-[1.5rem] ">
-            <h1 className="px-6 pb-[0.25rem] text-xs font-bold text-white uppercase text-opacity-60">
-              {' '}
-              Playlists
-            </h1>
-            <ul className="h-[40px]">
-              <li className="px-2">
-                <Menu.Item key="5" style={{ height: '40px', backgroundColor: 'black' }}>
-                  <NavLink
-                    to="likedSong"
-                    className="flex items-center px-4 rounded-[4px] bg-[black] w-full"
-                  >
-                    Liked songs
-                  </NavLink>
-                </Menu.Item>
-              </li>
-            </ul>
-            <div className="mx-6 separator"></div>
-            <ul className="playlists overflow-auto">
-              {/* <li className="px-2">
-                <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
-                  <a className="flex items-center px-4 rounded-[4px] bg-[black] w-full" href="#">
-                    Danh sách phát của tôi #1
-                  </a>
-                </Menu.Item>
-              </li> */}
-
-              {data?.items
-                ? data.items.map((item: any, index: any) => (
-                    <div className="px-2 " key={index}>
-                      <Menu.Item key="6" style={{ height: '40px', backgroundColor: 'black' }}>
-                        <NavLink
-                          className={`flex items-center px-4 rounded-[4px] bg-[black] w-full text-white`}
-                          to={`playlist/${item.id}`}
-                          state={{ Id: item.id }}
-                        >
-                          {item.name}
-                        </NavLink>
-                      </Menu.Item>
+          items={items}
+        />
+        <div className="flex flex-col pt-[1.5rem] ">
+          <h1 className="px-6 pb-[0.25rem] text-xs font-bold text-white uppercase text-opacity-60">
+            {' '}
+            Playlists
+          </h1>
+          <ul className="h-[40px]">
+            <li className="px-2">
+              <div style={{ height: '40px', backgroundColor: 'black' }}>
+                <NavLink
+                  to="likedSong"
+                  className="flex items-center px-4 rounded-[4px] bg-[black] w-full h-[40px]"
+                >
+                  Liked songs
+                </NavLink>
+              </div>
+            </li>
+          </ul>
+          <div className="mx-6 separator"></div>
+          <div className="playlists h-[calc(100vh-440px)] overflow-auto">
+            {data?.items
+              ? data.items.map((item: any, index: any) => (
+                  <div className="px-2 ">
+                    <div style={{ height: '40px', backgroundColor: 'black' }}>
+                      <NavLink
+                        className={`flex items-center px-4 rounded-[4px] bg-[black] w-full text-white`}
+                        to={`playlist/${item.id}`}
+                        style={({ isActive }) =>
+                          isActive ? { color: 'white' } : { color: '#b3b3b4' }
+                        }
+                        state={{ Id: item.id }}
+                      >
+                        {item.name}
+                      </NavLink>
                     </div>
-                  ))
-                : null}
-            </ul>
+                  </div>
+                ))
+              : null}
           </div>
-        </Menu>
+        </div>
       </div>
     </>
   );

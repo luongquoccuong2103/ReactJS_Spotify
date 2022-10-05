@@ -16,7 +16,7 @@ const PlayingBar = () => {
     }
   };
   return (
-    <div className="container fixed">
+    <div className="container z-50">
       <div className="now-playing-bar-left"></div>
       <div className="now-playing-bar-center">
         <div className="player-controls">
