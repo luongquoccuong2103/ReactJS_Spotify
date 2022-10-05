@@ -107,7 +107,7 @@ const SiderBar = () => {
             </li>
           </ul>
           <div className="mx-6 separator"></div>
-          <div className="playlists h-[calc(100vh-440px)] overflow-auto">
+          <div className="playlists ">
             {data?.items
               ? data.items.map((item: any, index: any) => (
                   <div className="px-2 ">

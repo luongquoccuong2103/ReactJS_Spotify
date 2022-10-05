@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-const CLIENT_ID = 'b4801a8426bb49d7833fa732754e43c2'; // insert your client id here from spotify
+const CLIENT_ID = 'fdb817872fb14108bb1802655f229199'; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const REDIRECT_URL_AFTER_LOGIN = 'http://localhost:3000/ReactJS_Spotify';
 const SPACE_DELIMITER = '%20';
@@ -58,9 +58,6 @@ export const AuthContextProvider = (props: any) => {
   if (!token) {
     window.location.href = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   }
-
-  
-
 
   return (
     <AuthContext.Provider

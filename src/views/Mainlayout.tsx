@@ -1,6 +1,6 @@
 import Layout, { Content, Footer } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 // import 'antd/dist/antd.min.css';
 import './MainLayout.scss';
 
@@ -20,8 +20,6 @@ import BrowseDetail from './Browse/BrowseDetail/BrowseDetail';
 import PlayListDetail from './MyPlaylist/PlaylistDetail/PlayListDetail';
 
 const MainLayout = () => {
-  
-
   //   <Layout>
   //   <Header>header</Header>
   //   <Layout>
@@ -53,6 +51,7 @@ const MainLayout = () => {
           <HeaderBar />
           <Content className="main-view content-spacing">
             <Routes>
+              <Route path="*" element={<Navigate to="/ReactJS_Spotify" />} />
               <Route path="/ReactJS_Spotify" element={<HomeBody />} />
               <Route path="/album/:albumId" element={<Album />} />
               <Route path="/artist/:artistId" element={<ArtistDetail />} />
