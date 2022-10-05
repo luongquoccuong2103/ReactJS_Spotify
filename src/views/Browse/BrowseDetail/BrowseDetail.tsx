@@ -35,7 +35,7 @@ const BrowseDetail = (props: any) => {
 
     call();
   }, [location, token]);
-  console.log(data?.items);
+  
 
   return (
     <div>

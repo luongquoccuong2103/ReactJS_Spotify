@@ -133,71 +133,6 @@ const PlayListDetail = () => {
         {data?.tracks?.items
           ? data.tracks.items.map((item: any) => (
               <>
-                {/* <div className="btn-hover group">
-                  <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
-                    <div className="block">
-                      <div className="flex">
-                        <div className="flex group-hover:hidden track-order">
-                          <div className="text-description">{count++}</div>
-                        </div>
-                        <div className="hidden pt-1 group-hover:block track-play-button">
-                          <div className="flex">
-                            <div className="play-icon svg-icon-play icon">
-                              <Play />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center">
-                      <div className="track-cover">
-                        <div
-                          className="media-cover-2"
-                          style={{
-                            backgroundImage: `url(${item.track.album.images[0].url})`
-                          }}
-                        ></div>
-                      </div>
-                      <div className="flex flex-col">
-                        <div className="ellipsis-one-line text-base text-white">
-                          {' '}
-                          {item.track.name}{' '}
-                        </div>
-                        <div className="flex">
-                          {item.track.artists.map((artist: any, index: any) => (
-                            <>
-                              <a
-                                className="text-description link-subtle ellipsis-one-line hover:underline"
-                                href="#"
-                              >
-                                {' '}
-                                {artist.name}{' '}
-                              </a>
-                              {index != item.track.artists.length - 1 && (
-                                <span className="mr-1 comma-separator ng-star-inserted">,</span>
-                              )}
-                            </>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <a className="text-description link-subtle hover:underline" href="#">
-                      {' '}
-                      {item.track.album.name}{' '}
-                    </a>
-
-                    <div className="text-description">
-                      <Datefix date={item.added_at} />
-                    </div>
-
-                    <div className="text-description">
-                      {' '}
-                      {millisToMinutesAndSeconds(item.track.duration_ms)}{' '}
-                    </div>
-                  </div>
-                </div> */}
                 <PlayListCard
                   count={count++}
                   url={item.track.album.images[0].url}
@@ -207,10 +142,13 @@ const PlayListDetail = () => {
                   albumid={item.track.album.id}
                   added_at={item.added_at}
                   duration_ms={item.track.duration_ms}
+                  id = {item.track.id}
                 />
+            
               </>
             ))
           : null}
+          
       </div>
     </>
   );

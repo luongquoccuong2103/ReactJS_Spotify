@@ -1,15 +1,52 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Play from '../assets/image/MyAlbum/play';
 
 const PlayListCard = (props: any) => {
-
+  const [isPlaying, setIsPlaying] = useState(false);
+  const token = localStorage.getItem('accessToken');
   function millisToMinutesAndSeconds(millis: any) {
     var minutes: any = Math.floor(millis / 60000);
     var seconds: any = ((millis % 60000) / 1000).toFixed(0);
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   }
-  const playTrack = async (id: any, ) => {};
-  
+
+  const playTrack = async (
+    id: any,
+    name: any,
+    artist: any,
+    image: any,
+    context_uri: any,
+    track_number: any
+  ) => {
+    console.log(id);
+    setIsPlaying(!isPlaying);
+    const response = await axios
+      .put(
+        `https://api.spotify.com/v1/me/player/play`,
+        {
+          context_uri,
+          offset: {
+            position: track_number - 1
+          },
+          position_ms: 0
+        },
+
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+     
+
+      if(response.status === 204){
+        
+      }
+  };
+
   const Datefix = (props: any) => {
     let date = new Date(props.date).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -29,7 +66,7 @@ const PlayListCard = (props: any) => {
               </div>
               <div className="hidden pt-1 group-hover:block track-play-button">
                 <div className="flex">
-                  <div className="play-icon svg-icon-play icon">
+                  <div className="play-icon svg-icon-play icon" onClick={() => playTrack}>
                     <Play />
                   </div>
                 </div>
