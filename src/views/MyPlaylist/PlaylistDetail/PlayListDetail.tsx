@@ -22,9 +22,7 @@ const PlayListDetail = () => {
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   }
 
-  const changeCurrentPlaylist = (selectedPlaylistId : any) => {
-
-  }
+  
 
   useEffect(() => {
     const call = async () => {

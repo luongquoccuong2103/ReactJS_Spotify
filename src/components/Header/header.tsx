@@ -1,44 +1,59 @@
-import { Button, Menu } from "antd";
-import { Header } from "antd/lib/layout/layout";
-import { useNavigate } from "react-router-dom";
-import CaretDownFill from "../assets/image/Header/caretDownFill";
-import CupStraw from "../assets/image/Header/cupStraw";
-import GitHub from "../assets/image/Header/gitHub";
-import HeartEyes from "../assets/image/Header/heartEyes";
+import { Button, Menu } from 'antd';
+import { Header } from 'antd/lib/layout/layout';
+import { useNavigate } from 'react-router-dom';
+import CaretDownFill from '../assets/image/Header/caretDownFill';
+import CupStraw from '../assets/image/Header/cupStraw';
+import GitHub from '../assets/image/Header/gitHub';
+import HeartEyes from '../assets/image/Header/heartEyes';
 import LeftArrowButton from '../assets/image/Header/leftArrowButton';
-import RightArrowButton from "../assets/image/Header/rightArrowButton";
-import "./header.scss";
+import RightArrowButton from '../assets/image/Header/rightArrowButton';
+import './header.scss';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 const HeaderBar = () => {
   const navigate = useNavigate();
-  const menu = (
-    <Menu
-      items={[
-        {
-          key: '1',
-          label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-              Profile
-            </a>
-          )
-        },
-        {
-          key: '2',
-          label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-              Remove Access
-            </a>
-          )
-        }
-      ]}
-    />
-  );
+  const [userData, setUserData]: any = useState();
+  const token = localStorage.getItem('accessToken');
+
+  useEffect(() => {
+    const call = async () => {
+      await axios
+        .get('https://api.spotify.com/v1/me', {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        })
+        .then((response) => {
+          setUserData(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // if (localStorage.getItem('accessToken')) {
+      //   setToken(localStorage.getItem('accessToken')!);
+      // }
+    };
+
+    call();
+  }, [token]);
   return (
     <Header className="topbar">
       <div className="flex">
-        <button _ngcontent-vgb-c70="" title="Go back" className="mr-4 arrow-button" onClick={() => navigate(-1)}>
+        <button
+          _ngcontent-vgb-c70=""
+          title="Go back"
+          className="mr-4 arrow-button"
+          onClick={() => navigate(-1)}
+        >
           <LeftArrowButton />
         </button>
-        <button _ngcontent-vgb-c70="" title="Go forward" className="arrow-button" onClick={() => navigate(1)}>
+        <button
+          _ngcontent-vgb-c70=""
+          title="Go forward"
+          className="arrow-button"
+          onClick={() => navigate(1)}
+        >
           <RightArrowButton />
         </button>
       </div>
@@ -65,24 +80,19 @@ const HeaderBar = () => {
         </Button>
       </div>
       <div className="user-info">
-        <Button type="primary" shape="round" className="user-upgrade">
+        {/* <Button type="primary" shape="round" className="user-upgrade">
           Upgrade
-        </Button>
-        <div _ngcontent-vgb-c69="" nz-dropdown="" className="user-dropdown ant-dropdown-trigger">
-          <figure _ngcontent-vgb-c69="" className="w-6 h-6 pt-1 pl-1 " title="Cường">
+        </Button> */}
+        <div className="user-dropdown ant-dropdown-trigger">
+          <figure className="w-6 h-6 pt-1 pl-1 " title="Cường">
             <img
               _ngcontent-vgb-c69=""
               alt="User Profile"
               className="rounded-2xl"
-              src="https://avatars.githubusercontent.com/u/66833983?s=200&amp;v=4"
+              src={userData?.images[0].url}
             />
           </figure>
-          <span
-            _ngcontent-vgb-c69=""
-            className="w-15 h-7 pr-3 pt-1 pl-3 ml-2 text-xs text-white truncate"
-          >
-            Cường
-          </span>
+          <span className="w-25 h-7 pr-3 pt-1.5 pl-3  text-xs text-white truncate">{userData?.display_name}</span>
           <div>
             <CaretDownFill />
           </div>

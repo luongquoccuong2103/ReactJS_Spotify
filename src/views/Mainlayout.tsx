@@ -27,13 +27,6 @@ function getItem(label: string, key: any) {
 }
 
 const MainLayout = () => {
-  const siderlist = [
-    getItem('Home', '1'),
-    getItem('Search', '2'),
-    getItem('Browse', '3'),
-    getItem('My Playlists', '4'),
-    getItem('My Albums', '5')
-  ];
 
   const playlist = [getItem('Liked songs', '6')];
 
@@ -65,13 +58,10 @@ const MainLayout = () => {
               <Route path="/myAlbum" element={<MyAlbum />} />
               <Route path="/browse" element={<BodyBrowse />} />
               <Route path="/browse/:browseid" element={<BrowseDetail />} />
-              {/* <Route path="/browse/topList/myPlayList" element={<MyPlayList />} /> */}
               <Route path="/playlist" element={<MyPlayList />} />
               <Route path="/playlist/:platlistid" element={<PlayListDetail />} />
               <Route path="/likedSong" element={<LikedSong />} />
               <Route path="/search" element={<Search />} />
-              {/* <Route path="/search/artist" element={<ArtistDetail />} /> */}
-              {/* <Route path="/search/:albumId" element={<Album />} /> */}
               <Route path="/search/::playlistid" element={<PlayListDetail />} />
             </Routes>
 

@@ -32,7 +32,7 @@ const SiderBar = () => {
   }, [token]);
   return (
     <>
-      <div className="h-full">
+      <div className="h-[50vh]">
         <div id="logo" className="px-[24px] mb-[16px] mt-[24px]">
           <span>
             <Logo />
@@ -83,7 +83,7 @@ const SiderBar = () => {
               </li>
             </ul>
             <div className="mx-6 separator"></div>
-            <ul className="playlists overflow-auto">
+            <ul className="playlists  overflow-auto ">
               {/* <li className="px-2">
                 <Menu.Item style={{ height: '40px', backgroundColor: 'black' }}>
                   <a className="flex items-center px-4 rounded-[4px] bg-[black] w-full" href="#">
