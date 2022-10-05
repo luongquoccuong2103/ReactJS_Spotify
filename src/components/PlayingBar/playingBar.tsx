@@ -98,7 +98,7 @@ const PlayingBar = () => {
         console.log(error);
       });
   };
-  
+
   const setVolume = async (e: any) => {
     await axios
       .put(
@@ -113,28 +113,15 @@ const PlayingBar = () => {
           }
         }
       )
-      .then((response) => {
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });
   };
 
   return (
-    <div className="container fixed">
-      <div className="now-playing-bar-left">
-        {data && (
-          <div className="track">
-            <div className="track-image">
-              <img src={data.item.album.images[2].url} alt="currentPlaying" />
-            </div>
-            <div className="track-info">
-              <h4>{data.item.name}</h4>
-              <h6>{data.item.artists[0].name}</h6>
-            </div>
-          </div>
-        )}
-      </div>
+    <div className="container z-50">
+      <div className="now-playing-bar-left"></div>
       <div className="now-playing-bar-center">
         <div className="player-controls">
           <div className="flex justify-center">
@@ -201,9 +188,15 @@ const PlayingBar = () => {
           </div>
         </div>
         <div className="player-volume">
-          <PlayerVolume/>
+          <PlayerVolume />
           <div className="flex-1 mx-2  slider">
-          <input className='volume-bar ' type="range" min={0} max={100} onMouseUp={(e) => setVolume(e)} />
+            <input
+              className="volume-bar "
+              type="range"
+              min={0}
+              max={100}
+              onMouseUp={(e) => setVolume(e)}
+            />
             {/* <div className="ant-slider">
               <div className="ant-slider-rail w-20">
                 <div dir="1tr">

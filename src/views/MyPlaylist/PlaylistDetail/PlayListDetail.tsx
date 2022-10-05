@@ -60,7 +60,7 @@ const PlayListDetail = () => {
           <div
             className="media-cover-2"
             style={{
-              backgroundImage: `url(${data.images[0].url})`
+              backgroundImage: `url(${data.images[0]?.url})`
             }}
           ></div>
           <div className="flex flex-col">

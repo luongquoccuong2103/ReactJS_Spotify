@@ -1,4 +1,4 @@
-import Layout, { Content } from 'antd/lib/layout/layout';
+import Layout, { Content, Footer } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
 import { Route, Routes } from 'react-router-dom';
 // import 'antd/dist/antd.min.css';
@@ -30,15 +30,24 @@ const MainLayout = () => {
 
   const playlist = [getItem('Liked songs', '6')];
 
+  //   <Layout>
+  //   <Header>header</Header>
+  //   <Layout>
+  //     <Sider>left sidebar</Sider>
+  //     <Content>main content</Content>
+  //     <Sider>right sidebar</Sider>
+  //   </Layout>
+  //   <Footer>footer</Footer>
+  // </Layout>
   return (
     <React.Fragment>
-      <Layout className="layout" style={{}}>
+      <Layout className="layout max-h-[calc(100vh-90px)]  overflow-hidden" style={{}}>
         <Sider
           width={232}
           style={{
             backgroundColor: 'black'
           }}
-          className="navigationBar max-h-[100vh]"
+          className="navigationBar "
         >
           <SiderBar />
         </Sider>

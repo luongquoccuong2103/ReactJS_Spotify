@@ -46,6 +46,10 @@
   color: white;
 }
 
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #000000;
+}
+
 .ant-btn {
   line-height: 1.5715;
   position: relative;
@@ -182,8 +186,6 @@
 }
 
 .playlists {
-  height: 40%;
-  overflow: auto;
   padding: 0.5rem 0 0.25rem !important;
 }
 
@@ -206,4 +208,16 @@ ul {
   border-width: 0;
   border-style: solid;
   border-color: black;
+}
+
+.list {
+  display: flex;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 4px;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  line-height: 20px;
+  letter-spacing: 0.015em;
 }
