@@ -5,7 +5,7 @@ import Play from '../../../components/assets/image/MyAlbum/play';
 import MusicCard from '../../../components/MusicCard/MusicCard';
 
 const Artists = (props: any) => {
-  console.log(props.data.artists.items[0].id);
+  
   return (
     <React.Fragment>
       <h2 className="mt-8 mb-4 text-heading">Artist</h2>

@@ -19,16 +19,8 @@ import Search from './Search/Search';
 import BrowseDetail from './Browse/BrowseDetail/BrowseDetail';
 import PlayListDetail from './MyPlaylist/PlaylistDetail/PlayListDetail';
 
-function getItem(label: string, key: any) {
-  return {
-    key,
-    label
-  };
-}
-
 const MainLayout = () => {
-
-  const playlist = [getItem('Liked songs', '6')];
+  
 
   return (
     <React.Fragment>

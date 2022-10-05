@@ -32,7 +32,7 @@ const PlayingBar = () => {
         })
         .then((response) => {
           setData(response.data);
-          console.log(response.data);
+         
         })
         .catch((error) => {
           console.log(error);
@@ -56,7 +56,7 @@ const PlayingBar = () => {
       )
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
+       
       })
       .catch((error) => {
         console.log(error);
@@ -70,7 +70,7 @@ const PlayingBar = () => {
       })
       .then((response) => {
         setData(response.data);
-        console.log(response.data);
+        
       })
       .catch((error) => {
         console.log(error);
@@ -92,7 +92,7 @@ const PlayingBar = () => {
       )
       .then((response) => {
         setIsPlaying(!isPlaying);
-        console.log(response.data);
+      
       })
       .catch((error) => {
         console.log(error);
@@ -202,18 +202,8 @@ const PlayingBar = () => {
         </div>
         <div className="player-volume">
           <PlayerVolume/>
-          <div className="flex-1 mx-2  slider">
+          <div className="flex-1 mx-2 slider">
           <input className='volume-bar ' type="range" min={0} max={100} onMouseUp={(e) => setVolume(e)} />
-            {/* <div className="ant-slider">
-              <div className="ant-slider-rail w-20">
-                <div dir="1tr">
-                  <div className="ant-slider-track"></div>
-                </div>
-                <div dir="1tr">
-                  <div className="ant-slider-handle"></div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const CallAPIHome = (props: any) => {
           'Content-Type': 'application/json'
         }
       });
-      console.log(response);
+      
     };
     getRecentPlayed();
   }, [token]);

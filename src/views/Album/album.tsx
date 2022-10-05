@@ -23,7 +23,7 @@ const Album = (props: any) => {
         })
         .then((response) => {
           setAlbumData(response.data);
-          console.log(response.data);
+         
         })
         .catch((error) => {
           console.log(error);

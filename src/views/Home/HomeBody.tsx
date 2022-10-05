@@ -37,15 +37,13 @@ const HomeBody = (props: any) => {
         })
         .then((response) => {
           setFeaturePlaylist(response.data);
-          // console.log(response.data.items);
+         
         })
         .catch((error) => {
           console.log(error);
         });
 
-      // if (localStorage.getItem('accessToken')) {
-      //   setToken(localStorage.getItem('accessToken')!);
-      // }
+
     };
     call();
     callFeaturePlaylist();
