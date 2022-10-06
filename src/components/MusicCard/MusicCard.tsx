@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Pause from '../assets/image/MyAlbum/pause';
 import Play from '../assets/image/MyAlbum/play';
+
 import './MusicCard.scss';
 
 const MusicCard = (props: any) => {
-   
   return (
     <React.Fragment>
       <NavLink to={props.to} className="contented  max-h-[260px]" state={{ Id: props.id }}>
@@ -24,6 +25,7 @@ const MusicCard = (props: any) => {
               <div className="flex play-icon control-button large text-white bg-primary">
                 <div className="play-icon svgicon text-[1.5rem]">
                   <Play />
+                  {/* <Pause /> */}
                 </div>
               </div>
             </div>

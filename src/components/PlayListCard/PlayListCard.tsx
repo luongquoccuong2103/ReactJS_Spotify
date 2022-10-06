@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Pause from '../assets/image/MyAlbum/pause';
 import Play from '../assets/image/MyAlbum/play';
+import IsPlayingTrack from '../assets/image/MyPlayList/isPlayingTrack';
 
 const PlayListCard = (props: any) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -22,29 +24,26 @@ const PlayListCard = (props: any) => {
   ) => {
     console.log(id);
     setIsPlaying(!isPlaying);
-    const response = await axios
-      .put(
-        `https://api.spotify.com/v1/me/player/play`,
-        {
-          context_uri,
-          offset: {
-            position: track_number - 1
-          },
-          position_ms: 0
+    const response = await axios.put(
+      `https://api.spotify.com/v1/me/player/play`,
+      {
+        context_uri,
+        offset: {
+          position: track_number - 1
         },
+        position_ms: 0
+      },
 
-        {
-          headers: {
-            Authorization: 'Bearer ' + token,
-            'Content-Type': 'application/json'
-          }
+      {
+        headers: {
+          Authorization: 'Bearer ' + token,
+          'Content-Type': 'application/json'
         }
-      )
-     
-
-      if(response.status === 204){
-        
       }
+    );
+
+    if (response.status === 204) {
+    }
   };
 
   const Datefix = (props: any) => {
@@ -55,19 +54,26 @@ const PlayListCard = (props: any) => {
     });
     return <p>{date}</p>;
   };
+  const [onplay, setOnPlay] = useState(false);
   return (
     <>
-      <div className="btn-hover group">
+      <div className="btn-hover group" onClick={() => setOnPlay(!onplay)}>
         <div className="playlist-tracks-grid tracked hover:bg-[#B3B3B3] hover:bg-opacity-[30%] btn-hover ">
           <div className="block">
             <div className="flex">
               <div className="flex group-hover:hidden track-order">
-                <div className="text-description">{props.count}</div>
+                {!onplay && <div className="text-description">{props.count}</div>}
+                {onplay && (
+                  <div className="play-icon svg-icon-play icon">
+                    <IsPlayingTrack />
+                  </div>
+                )}
               </div>
-              <div className="hidden pt-1 group-hover:block track-play-button">
+              <div className="hidden  group-hover:block track-play-button">
                 <div className="flex">
                   <div className="play-icon svg-icon-play icon" onClick={() => playTrack}>
-                    <Play />
+                    {!onplay && <Play />}
+                    {onplay && <Pause />}
                   </div>
                 </div>
               </div>

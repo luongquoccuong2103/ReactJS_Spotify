@@ -82,7 +82,9 @@ const Search = (props: any) => {
           </div>
         </div>
         <div>
-              <IsPlayingTrack />
+          <div className="grid py-3 place-items-center w-12 h-12">
+            <IsPlayingTrack />
+          </div>
         </div>
       </div>
       {data?.tracks.items.length > 0 && <Songs data={data} />}
