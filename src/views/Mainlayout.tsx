@@ -31,7 +31,7 @@ const MainLayout = () => {
   // </Layout>
   return (
     <React.Fragment>
-      <Layout className="layout max-h-[calc(100vh-90px)]  overflow-hidden" style={{}}>
+      <Layout className="layout max-h-[calc(100vh-90px)]  overflow-hidden">
         <Sider
           width={232}
           style={{
@@ -64,8 +64,6 @@ const MainLayout = () => {
               <Route path="/search" element={<Search />} />
               <Route path="/search/::playlistid" element={<PlayListDetail />} />
             </Routes>
-
-            <Routes>{/* <Route path="/" element={<HomeBody />} /> */}</Routes>
           </Content>
         </Layout>
       </Layout>
