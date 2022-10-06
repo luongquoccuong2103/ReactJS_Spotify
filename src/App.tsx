@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <script src="https://sdk.scdn.co/spotify-player.js"></script> 
+        {/* <script src="https://sdk.scdn.co/spotify-player.js"></script>  */}
         <MainLayout />
       </BrowserRouter>
     </>

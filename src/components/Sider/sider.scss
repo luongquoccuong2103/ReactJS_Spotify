@@ -187,6 +187,8 @@
 
 .playlists {
   padding: 0.5rem 0 0.25rem !important;
+  height: calc(100vh - 455px);
+  overflow: auto;
 }
 
 h1 {

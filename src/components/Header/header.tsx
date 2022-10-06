@@ -25,6 +25,7 @@ const HeaderBar = () => {
         })
         .then((response) => {
           setUserData(response.data);
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);
@@ -89,10 +90,12 @@ const HeaderBar = () => {
               _ngcontent-vgb-c69=""
               alt="User Profile"
               className="rounded-2xl"
-              src={userData?.images[0].url}
+              src={userData?.images[0]?.url}
             />
           </figure>
-          <span className="w-25 h-7 pr-3 pt-1.5 pl-3  text-xs text-white truncate">{userData?.display_name}</span>
+          <span className="w-25 h-7 pr-3 pt-1.5 pl-3  text-xs text-white truncate">
+            {userData?.display_name}
+          </span>
           <div>
             <CaretDownFill />
           </div>
