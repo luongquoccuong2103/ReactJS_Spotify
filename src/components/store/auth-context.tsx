@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-const CLIENT_ID = 'fdb817872fb14108bb1802655f229199'; // insert your client id here from spotify
+const CLIENT_ID = '5354cac33c60406486a88fb58c2bb36b'; // insert your client id here from spotify
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize';
 const REDIRECT_URL_AFTER_LOGIN = 'http://localhost:3000/ReactJS_Spotify';
 const SPACE_DELIMITER = '%20';
