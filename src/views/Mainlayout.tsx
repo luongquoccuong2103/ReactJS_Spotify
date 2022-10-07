@@ -20,6 +20,8 @@ import BrowseDetail from './Browse/BrowseDetail/BrowseDetail';
 import PlayListDetail from './MyPlaylist/PlaylistDetail/PlayListDetail';
 
 const MainLayout = () => {
+  
+  const token = localStorage.getItem('accessToken');
   //   <Layout>
   //   <Header>header</Header>
   //   <Layout>
@@ -29,6 +31,9 @@ const MainLayout = () => {
   //   </Layout>
   //   <Footer>footer</Footer>
   // </Layout>
+  <script src="https://sdk.scdn.co/spotify-player.js">
+    
+  </script>
   return (
     <React.Fragment>
       <Layout className="layout max-h-[calc(100vh-90px)]  overflow-hidden">
